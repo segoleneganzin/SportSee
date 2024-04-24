@@ -1,4 +1,5 @@
 // Api call + creating object
+// manage mocked datas or api
 import {
   getUserApi,
   getActivityApi,
@@ -10,7 +11,7 @@ import { UserActivity } from './models/UserActivity';
 import { UserAverageSessions } from './models/UserAverageSessions';
 import { UserPerformance } from './models/UserPerformance';
 
-// TODO context for mockedDatas
+// TODO context for mockedDatas ?
 const mockedDatas = true;
 
 // user

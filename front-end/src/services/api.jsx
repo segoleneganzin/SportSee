@@ -15,7 +15,7 @@ export const getActivityApi = async (userId, mockedDatas) => {
 export const getAverageSessionsApi = async (userId, mockedDatas) => {
   const uri = mockedDatas
     ? '/mocks/userAverageSessions.json'
-    : `/user/${userId}/averageSessions`;
+    : `/user/${userId}/average-sessions`;
   return await fetchData(uri, userId, mockedDatas);
 };
 

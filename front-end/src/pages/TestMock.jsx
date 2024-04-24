@@ -40,9 +40,13 @@ const TestMock = () => {
     <div>
       <h1>Test mocked Datas</h1>
       <h2>User informations</h2>
-      <p>{user.firstName + ' ' + user.lastName}</p>
-      <p>{user.age + ' ans'}</p>
-      <p>{user.todayScore}</p>
+      <p>
+        {user.firstName + ' ' + user.lastName}
+        <br />
+        {user.age} ans
+        <br />
+        Daily goal : {user.todayScore * 100}%
+      </p>
       <h2>User Activity</h2>
       <ul>
         {userActivity.sessions.map((session, index) => (
