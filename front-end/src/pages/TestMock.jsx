@@ -5,7 +5,7 @@ import {
   getUserActivityById,
   getUserAverageSessionsById,
   getUserPerformanceById,
-} from '../services/appService.jsx';
+} from '../services/api.jsx';
 
 const TestMock = () => {
   const [user, setUser] = useState({});
@@ -18,14 +18,16 @@ const TestMock = () => {
   useEffect(() => {
     const fetchDatas = async () => {
       try {
-        const user = await getUserById(userId);
-        const userActivity = await getUserActivityById(userId);
-        const userAverageSessions = await getUserAverageSessionsById(userId);
-        const userPerformance = await getUserPerformanceById(userId);
-        setUser(user);
-        setUserActivity(userActivity);
-        setUserAverageSessions(userAverageSessions);
-        setUserPerformance(userPerformance);
+        const userById = await getUserById(userId);
+        const userActivityById = await getUserActivityById(userId);
+        const userAverageSessionsById = await getUserAverageSessionsById(
+          userId
+        );
+        const userPerformanceById = await getUserPerformanceById(userId);
+        setUser(userById);
+        setUserActivity(userActivityById);
+        setUserAverageSessions(userAverageSessionsById);
+        setUserPerformance(userPerformanceById);
         setIsLoading(false);
       } catch (error) {
         console.log('error : ', error);
@@ -49,15 +51,16 @@ const TestMock = () => {
       </p>
       <h2>User Activity</h2>
       <ul>
-        {userActivity.sessions.map((session, index) => (
-          <li key={index}>
-            <p>
-              Date : {session.day} <br />
-              Kg : {session.kilogram} <br />
-              Calories : {session.calories} <br />
-            </p>
-          </li>
-        ))}
+        {userActivity &&
+          userActivity.sessions.map((session, index) => (
+            <li key={index}>
+              <p>
+                Date : {session.day} <br />
+                Kg : {session.kilogram} <br />
+                Calories : {session.calories} <br />
+              </p>
+            </li>
+          ))}
       </ul>
       <h2>User average session</h2>
       <ul>
