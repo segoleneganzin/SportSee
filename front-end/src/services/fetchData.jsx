@@ -1,12 +1,8 @@
-export const fetchData = async (uri, userId, mockedDatas) => {
-  if (!uri) return;
-  const domain = mockedDatas
-    ? 'http://localhost:5173'
-    : 'http://localhost:3000';
-  const url = domain + uri;
-  console.log(url);
+export const fetchData = async (endpoint, userId, mockedDatas) => {
+  if (!endpoint) return;
+  console.log(endpoint);
   try {
-    const response = await fetch(url);
+    const response = await fetch(endpoint);
     let data = await response.json();
     if (mockedDatas) {
       data = data.find((user) => user.userId === userId);

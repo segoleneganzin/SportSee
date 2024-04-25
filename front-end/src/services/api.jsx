@@ -17,14 +17,16 @@ const mockedDatas = true;
  * @returns {object}
  */
 const getDatasById = async (userId, dataType) => {
+  const domain = mockedDatas
+    ? 'http://localhost:5173'
+    : 'http://localhost:3000';
   let uri = mockedDatas
     ? `/mocks/${dataType}.json`
     : `/user/${userId}/${dataType}`;
   if (dataType === 'user' && !mockedDatas) {
     uri = `/user/${userId}`;
   }
-  const data = await fetchData(uri, userId, mockedDatas);
-  return data;
+  return await fetchData(domain + uri, userId, mockedDatas);
 };
 
 /**
@@ -34,8 +36,7 @@ const getDatasById = async (userId, dataType) => {
  * @returns {Promise<User>} A Promise resolving to the user object.
  */
 export const getUserById = async (userId) => {
-  const data = await getDatasById(userId, 'user');
-  return User(data);
+  return User(await getDatasById(userId, 'user'));
 };
 
 /**
@@ -45,8 +46,7 @@ export const getUserById = async (userId) => {
  * @returns {Promise<UserActivity>} A Promise resolving to the userActivity object.
  */
 export const getUserActivityById = async (userId) => {
-  const data = await getDatasById(userId, 'activity');
-  return UserActivity(data);
+  return UserActivity(await getDatasById(userId, 'activity'));
 };
 
 /**
@@ -56,8 +56,7 @@ export const getUserActivityById = async (userId) => {
  * @returns {Promise<UserAverageSessions>} A Promise resolving to the userAverageSessions object.
  */
 export const getUserAverageSessionsById = async (userId) => {
-  const data = await getDatasById(userId, 'average-sessions');
-  return UserAverageSessions(data);
+  return UserAverageSessions(await getDatasById(userId, 'average-sessions'));
 };
 
 /**
@@ -67,6 +66,5 @@ export const getUserAverageSessionsById = async (userId) => {
  * @returns {Promise<UserPerformance>} A Promise resolving to the userPerformance object.
  */
 export const getUserPerformanceById = async (userId) => {
-  const data = await getDatasById(userId, 'performance');
-  return UserPerformance(data);
+  return UserPerformance(await getDatasById(userId, 'performance'));
 };
