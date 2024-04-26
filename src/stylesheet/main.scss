@@ -10,12 +10,13 @@
 @import 'base/base', 'base/typography', 'base/helpers';
 
 // 4. Layout-related sections
-@import 'layout/header', 'layout/footer', 'layout/menu', 'layout/verticalNav';
+@import 'layout/header', 'layout/footer', 'layout/menu', 'layout/verticalNav',
+  'layout/dashboardHeader';
 
 // 5. Components
 @import 'components/button';
 
 // 6. Page-specific styles
-@import 'pages/home';
+@import 'pages/dashboard';
 
 // 7. Themes

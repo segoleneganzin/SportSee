@@ -23,6 +23,7 @@ main {
   left: $vertical-nav-width;
   position: absolute;
   top: $header-height;
+  width: 91vw;
 
   @include media-breakpoint($breakpoint-mobile) {
     // gap: 22px;
