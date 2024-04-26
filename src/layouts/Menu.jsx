@@ -13,11 +13,6 @@ const Menu = () => {
       <a href='/' className='menu__link'>
         Communauté
       </a>
-      {/* <Link
-    to='/'
-  >
-    A Propos
-  </Link> */}
     </nav>
   );
 };

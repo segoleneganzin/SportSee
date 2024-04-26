@@ -6,7 +6,8 @@
 body {
   color: $text-color;
 }
-.menu__link {
+.menu__link,
+.vertical-section__copyright {
   color: $white;
 }
 /****************************************************** FONTS */
@@ -14,18 +15,49 @@ body {
 body {
   font-family: 'Roboto', sans-serif;
 }
-
+/***************************************** line height */
+body {
+  line-height: 1.5rem;
+}
 /***************************************** font weight */
 body {
   font-weight: 500;
 }
-.bold {
+.bold,
+.keyData__value {
   font-weight: 700;
+}
+.light-font {
+  font-weight: 400;
 }
 /***************************************** font size */
 .menu__link {
   font-size: 1.5rem;
 }
-/***************************************** line height */
+.title1 {
+  font-size: 3rem;
+}
+.subtitle {
+  font-size: 1.125rem;
+}
+.container__title {
+  font-size: 0.938rem;
+}
+.keyData__value {
+  font-size: 1.25rem;
+}
+.activity__legend,
+.keyData__category {
+  font-size: 0.875rem;
+}
+.performance__kind,
+.vertical-section__copyright {
+  font-size: 0.75rem;
+}
+
 /***************************************** text transform */
+.vertical-section__copyright {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
 /***************************************** text shadow */

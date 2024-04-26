@@ -1,4 +1,9 @@
 .menu {
   display: flex;
   gap: 219px;
+  padding-right: 91px;
+  @include media-breakpoint($breakpoint-laptopXL) {
+    gap: 100px;
+    padding-right: 25px;
+  }
 }

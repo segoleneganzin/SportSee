@@ -19,14 +19,13 @@ html {
  * Basic styles for main
  */
 main {
-  @include flex-col;
-  gap: 43px;
-  margin: 50px 100px;
-  @include media-breakpoint($breakpoint-laptop) {
-    margin: 27px 20px;
-  }
+  height: 100vh;
+  left: $vertical-nav-width;
+  position: absolute;
+  top: $header-height;
+
   @include media-breakpoint($breakpoint-mobile) {
-    gap: 22px;
+    // gap: 22px;
   }
 }
 
@@ -34,13 +33,7 @@ main {
  * Basic styles for links
  */
 a {
-  color: $brand-color;
   text-decoration: none;
   cursor: pointer;
   width: fit-content;
-
-  @include on-event {
-    color: $text-color;
-    text-decoration: underline;
-  }
 }
