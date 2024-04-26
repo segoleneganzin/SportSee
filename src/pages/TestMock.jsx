@@ -13,11 +13,13 @@ const TestMock = () => {
   const [userAverageSessions, setUserAverageSessions] = useState({});
   const [userPerformance, setUserPerformance] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const userId = 12;
+  const [error, setError] = useState(false);
+  const userId = 18;
 
   useEffect(() => {
     const fetchDatas = async () => {
       try {
+        setError(false);
         const userById = await getUserById(userId);
         const userActivityById = await getUserActivityById(userId);
         const userAverageSessionsById = await getUserAverageSessionsById(
@@ -31,12 +33,15 @@ const TestMock = () => {
         setIsLoading(false);
       } catch (error) {
         console.log('error : ', error);
+        setError(true);
       }
     };
     fetchDatas();
-  }, []);
+  }, [userId]);
 
-  return isLoading || !user ? (
+  return error ? (
+    <p>Utilisateur introuvable</p>
+  ) : isLoading ? (
     <p>Loading</p>
   ) : (
     <div>

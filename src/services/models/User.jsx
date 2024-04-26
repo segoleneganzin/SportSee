@@ -19,6 +19,7 @@ export const User = (user) => {
     userId,
     userInfos: { firstName, lastName, age },
     todayScore,
+    score,
     keyData: { calorieCount, proteinCount, carbohydrateCount, lipidCount },
   } = user;
   return {
@@ -26,7 +27,7 @@ export const User = (user) => {
     firstName,
     lastName,
     age,
-    todayScore,
+    todayScore: todayScore || score,
     calorieCount,
     proteinCount,
     carbohydrateCount,
