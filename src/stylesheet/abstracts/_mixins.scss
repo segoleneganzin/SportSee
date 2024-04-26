@@ -34,3 +34,12 @@
     @content;
   }
 }
+
+@mixin on-event() {
+  &:hover,
+  &:active,
+  &:focus,
+  &:focus-within {
+    @content;
+  }
+}
