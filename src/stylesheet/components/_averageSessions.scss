@@ -1,0 +1,12 @@
+.average-sessions {
+  background-color: $brand-color;
+  border-radius: $smallRadius;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.02);
+  display: flex;
+  flex-direction: column;
+  max-height: 263px;
+  min-width: 258px;
+  &__title {
+    margin: 29px 77px 0 34px;
+  }
+}

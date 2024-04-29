@@ -19,7 +19,7 @@ const Dashboard = () => {
   const [userPerformance, setUserPerformance] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
-  const userId = 18;
+  const userId = 12;
   useEffect(() => {
     const fetchDatas = async () => {
       try {
