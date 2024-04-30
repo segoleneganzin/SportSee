@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
  */
 const Performance = ({ userPerformance }) => {
   return (
-    <section className='container'>
+    <section className='container performance'>
       <hr />
       {userPerformance.data.map((data, index) => (
         <p key={index}>

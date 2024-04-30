@@ -11,10 +11,11 @@
 
 // 4. Layout-related sections
 @import 'layout/header', 'layout/footer', 'layout/menu', 'layout/verticalNav',
-  'layout/dashboardHeader';
+  'layout/dashboardHeader', 'layout/userDatas';
 
 // 5. Components
-@import 'components/averageSessions';
+@import 'components/averageSessions', 'components/activity',
+  'components/performance', 'components/todayScore', 'components/userDatasCard';
 
 // 6. Page-specific styles
 @import 'pages/dashboard';

@@ -9,18 +9,14 @@ import PropTypes from 'prop-types';
  */
 const Activity = ({ userActivity }) => {
   return (
-    <section className='container'>
-      <hr />
+    <section className='activity'>
       {userActivity.sessions.map((session, index) => (
-        <li key={index}>
-          <p>
-            Date : {session.day} <br />
-            Kg : {session.kilogram} <br />
-            Calories : {session.calories} <br />
-          </p>
-        </li>
-      ))}{' '}
-      <hr />
+        <p key={index}>
+          Date : {session.day} <br />
+          Kg : {session.kilogram} <br />
+          Calories : {session.calories} <br />
+        </p>
+      ))}
     </section>
   );
 };

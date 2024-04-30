@@ -10,7 +10,7 @@ import Activity from '../components/Activity.jsx';
 import AverageSessions from '../components/AverageSessions.jsx';
 import Performance from '../components/Performance.jsx';
 import TodayScore from '../components/TodayScore.jsx';
-import UserDatas from '../components/UserDatas.jsx';
+import UserDatas from '../layouts/UserDatas.jsx';
 
 const Dashboard = () => {
   const [user, setUser] = useState({});
@@ -19,7 +19,7 @@ const Dashboard = () => {
   const [userPerformance, setUserPerformance] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
-  const userId = 12;
+  const userId = 18;
   useEffect(() => {
     const fetchDatas = async () => {
       try {
@@ -51,10 +51,12 @@ const Dashboard = () => {
     <main>
       <DashboardHeader user={user} />
       <div className='dashboard__content'>
-        <Activity userActivity={userActivity} />
-        <AverageSessions userAverageSessions={userAverageSessions} />
-        <Performance userPerformance={userPerformance} />
-        <TodayScore user={user} />
+        <div className='dashboard__content-container'>
+          <Activity userActivity={userActivity} />
+          <AverageSessions userAverageSessions={userAverageSessions} />
+          <Performance userPerformance={userPerformance} />
+          <TodayScore user={user} />
+        </div>
         <UserDatas user={user} />
       </div>
     </main>

@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 
 const TodayScore = ({ user }) => {
   return (
-    <section className='container'>
+    <section className='container today-score'>
       Daily goal : {user.todayScore * 100}%
     </section>
   );

@@ -1,12 +1,34 @@
 .average-sessions {
   background-color: $brand-color;
   border-radius: $smallRadius;
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.02);
   display: flex;
   flex-direction: column;
-  max-height: 263px;
-  min-width: 258px;
+  position: relative;
   &__title {
     margin: 29px 77px 0 34px;
+    opacity: 0.5;
+  }
+  &__custom-tooltip {
+    .label {
+      background-color: $white;
+      padding: 0 7px;
+      width: fit-content;
+    }
+  }
+  &__custom-line {
+    stroke-linecap: round;
+  }
+  .overlay {
+    background-color: $black;
+    height: 100%;
+    opacity: 0.1;
+    position: absolute;
+    right: 0;
+    width: 30%;
+  }
+  .recharts-responsive-container {
+    bottom: 0;
+    padding: 22px 0px 20px 0px;
+    position: absolute;
   }
 }

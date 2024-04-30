@@ -3,7 +3,7 @@
   align-items: center;
   background-color: $black;
   height: 100vh;
-  position: relative;
+  position: absolute;
   width: $vertical-nav-width;
   &__nav {
     @include flex-col;
