@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import PropTypes from 'prop-types';
 import {
   LineChart,
@@ -8,9 +7,11 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from 'recharts';
+import AverageSessionsCustomTooltip from './AverageSessionsCustomTooltip';
 
 /**
  * Component representing the dashboard header.
+ * The data were extended before and after, to manage visual rendering.
  * @param {object} props
  * @param {object} props.userAverageSessions
  * @returns {JSX.Element}
@@ -37,15 +38,17 @@ const AverageSessions = ({ userAverageSessions }) => {
     }
   };
 
-  // function to manage what tooltip display
-  const customTooltip = ({ active, payload }) => {
-    return active && payload && payload.length ? (
-      <div className='average-sessions__custom-tooltip'>
-        <p className='label'>{payload[0].value} min</p>
-      </div>
-    ) : (
-      ''
-    );
+  // Function to create additional data for visual render
+  const extendData = (data) => {
+    // Add additional data at the beginning and the end
+    const extendedData = [
+      { day: 0, sessionLength: data[0].sessionLength },
+      { day: 8, sessionLength: data[6].sessionLength },
+    ];
+    // Add existing data
+    extendedData.push(...data);
+    // Sort the extended data array by the day index
+    return extendedData.sort((a, b) => a.day - b.day);
   };
 
   return (
@@ -53,10 +56,9 @@ const AverageSessions = ({ userAverageSessions }) => {
       <h2 className='average-sessions__title container__title'>
         Durée moyenne des sessions
       </h2>
-      <div className='overlay'></div>
-
-      <ResponsiveContainer width='100%' height='60%'>
-        <LineChart data={userAverageSessions.sessions}>
+      {/* with > 100% to mask extend datas before and after for visual render */}
+      <ResponsiveContainer width='118%' height='70%'>
+        <LineChart data={extendData(userAverageSessions.sessions)}>
           <defs>
             <linearGradient
               id='colorLine'
@@ -67,8 +69,9 @@ const AverageSessions = ({ userAverageSessions }) => {
               gradientUnits='userSpaceOnUse'
             >
               <stop stopColor='white' />
+
               <stop
-                offset='0.810441'
+                offset='0.910441'
                 stopColor='white'
                 stopOpacity='0.403191'
               />
@@ -85,7 +88,6 @@ const AverageSessions = ({ userAverageSessions }) => {
               strokeWidth: 5,
               stroke: 'rgba(255, 255, 255, 0.20)',
             }}
-            className='average-sessions__custom-line' // Add custom CSS class for the line
           />
           <XAxis
             dataKey='day'
@@ -102,7 +104,7 @@ const AverageSessions = ({ userAverageSessions }) => {
           />
           <YAxis hide domain={['dataMin-10', 'dataMax+10']} />
           {/* infobulle */}
-          <Tooltip content={customTooltip} cursor={false} offset={4} />
+          <Tooltip content={<AverageSessionsCustomTooltip />} cursor={false} />
         </LineChart>
       </ResponsiveContainer>
     </section>

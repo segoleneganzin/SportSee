@@ -3,32 +3,30 @@
   border-radius: $smallRadius;
   display: flex;
   flex-direction: column;
+  align-items: center;
   position: relative;
   &__title {
     margin: 29px 77px 0 34px;
     opacity: 0.5;
   }
   &__custom-tooltip {
+    width: 300px;
+    .overlay {
+      background-color: $black;
+      height: 263px;
+      opacity: 0.2;
+      position: absolute;
+      top: -100px;
+    }
     .label {
       background-color: $white;
       padding: 0 7px;
-      width: fit-content;
+      position: absolute;
     }
-  }
-  &__custom-line {
-    stroke-linecap: round;
-  }
-  .overlay {
-    background-color: $black;
-    height: 100%;
-    opacity: 0.1;
-    position: absolute;
-    right: 0;
-    width: 30%;
   }
   .recharts-responsive-container {
     bottom: 0;
-    padding: 22px 0px 20px 0px;
+    padding: 22px 0px 20px;
     position: absolute;
   }
 }
