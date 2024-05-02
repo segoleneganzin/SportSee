@@ -7,7 +7,7 @@ const VerticalNav = () => {
       <nav className='vertical-section__nav'>
         {sports.map((item, index) => (
           <a
-            href='/'
+            href='#'
             className='vertical-section__nav-link'
             aria-label={item.name}
             key={index}

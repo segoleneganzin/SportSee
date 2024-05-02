@@ -12,8 +12,10 @@ import AverageSessions from '../components/AverageSessions.jsx';
 import Performance from '../components/Performance.jsx';
 import TodayScore from '../components/TodayScore.jsx';
 import UserDatas from '../layouts/UserDatas.jsx';
+import { useUser } from '../utils/hooks/useUser.jsx';
 
 const Dashboard = () => {
+  const { isAuth } = useUser();
   const [user, setUser] = useState({});
   const [userActivity, setUserActivity] = useState({});
   const [userAverageSessions, setUserAverageSessions] = useState({});
@@ -47,12 +49,19 @@ const Dashboard = () => {
     fetchDatas();
   }, [userId]);
 
+  // if id doesn't match with any user, redirecting to 404 error page
   useEffect(() => {
-    // if id doesn't match with any user, redirecting to 404 error page
     if (error) {
       navigate('/erreur404');
     }
   }, [error, navigate]);
+
+  // if user isn't authenticate, go to authentication page
+  useEffect(() => {
+    if (!isAuth) {
+      navigate('/');
+    }
+  }, [isAuth, navigate]);
 
   return isLoading ? (
     // TODO loader

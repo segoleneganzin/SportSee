@@ -1,17 +1,24 @@
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../utils/hooks/useUser';
-import { useAuth } from '../utils/hooks/useAuth';
 
 const Authentication = () => {
   // TODO design
   const navigate = useNavigate();
-  const { setUserId } = useUser();
-  const { login } = useAuth();
+  const { userId, login, isAuth } = useUser();
+
   const connection = (userId) => {
-    login(true);
-    setUserId(userId);
+    login(userId);
     navigate(`/accueil/${userId}`);
   };
+
+  // if user is already authenticate, go to dashboard page
+  useEffect(() => {
+    if (isAuth) {
+      navigate(`/accueil/${userId}`);
+    }
+  }, [isAuth, navigate, userId]);
+
   return (
     <main>
       <h1>Simulation d&apos;authentification</h1>

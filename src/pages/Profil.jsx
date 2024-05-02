@@ -1,9 +1,9 @@
 import { useParams } from 'react-router-dom';
-import { useAuth } from '../utils/hooks/useAuth';
+import { useUser } from '../utils/hooks/useUser';
 
 const Profil = () => {
   const { userId } = useParams(); // get id from url - result is string
-  const { logout } = useAuth();
+  const { logout } = useUser();
 
   return (
     <main>
