@@ -10,13 +10,13 @@ import PropTypes from 'prop-types';
 const Performance = ({ userPerformance }) => {
   return (
     <section className='container performance'>
-      <hr />
+      {/* <hr />
       {userPerformance.data.map((data, index) => (
         <p key={index}>
           {userPerformance.kind[data.kind]} :{data.value}
         </p>
       ))}
-      <hr />
+      <hr /> */}
     </section>
   );
 };

@@ -7,11 +7,11 @@ const PageLayout = ({ children }) => {
   const { isAuth } = useUser();
 
   return (
-    <div>
+    <>
       {isAuth && <Header />}
       {isAuth && <VerticalNav />}
       {children}
-    </div>
+    </>
   );
 };
 PageLayout.propTypes = {

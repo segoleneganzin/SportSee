@@ -11,6 +11,9 @@ body {
 .dashboard-header__firstName {
   color: $brand-color;
 }
+.user-datas-card__category {
+  color: $grey;
+}
 /****************************************************** FONTS */
 
 body {
@@ -25,7 +28,7 @@ body {
   font-weight: 500;
 }
 .bold,
-.keyData__value {
+.user-datas-card__value {
   font-weight: 700;
 }
 .light-font {
@@ -44,11 +47,11 @@ body {
 .container__title {
   font-size: 0.938rem;
 }
-.keyData__value {
+.user-datas-card__value {
   font-size: 1.25rem;
 }
 .activity__legend,
-.keyData__category {
+.user-datas-card__category {
   font-size: 0.875rem;
 }
 .performance__kind,

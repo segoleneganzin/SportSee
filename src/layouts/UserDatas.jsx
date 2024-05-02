@@ -9,7 +9,7 @@ import UserDatasCard from '../components/UserDatasCard';
 
 const UserDatas = ({ user }) => {
   return (
-    <section className='container'>
+    <section className='user-datas'>
       <UserDatasCard name='Calories' value={user.calorieCount} />
       <UserDatasCard name='Protéines' value={user.proteinCount} />
       <UserDatasCard name='Glucides' value={user.carbohydrateCount} />
