@@ -1,5 +1,10 @@
 .user-datas {
   @include flex-col;
-  gap: 39px;
-  width: 258px;
+  gap: 37px;
+  width: 100%;
+  @include media-breakpoint($breakpoint-laptop) {
+    flex-direction: row;
+    gap: 10px;
+    justify-content: space-between;
+  }
 }

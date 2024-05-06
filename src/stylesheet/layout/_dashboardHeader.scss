@@ -2,4 +2,7 @@
   @include flex-col;
   gap: 41px;
   width: fit-content;
+  @include media-breakpoint($breakpoint-laptop) {
+    gap: 20px;
+  }
 }

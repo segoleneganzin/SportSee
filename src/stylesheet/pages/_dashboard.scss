@@ -1,15 +1,31 @@
 .dashboard__content {
-  display: flex;
   margin-top: 77px;
   gap: 32px;
   &-container {
     display: grid;
-    grid-template-rows: auto auto;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 320px 263px;
+    grid-template-columns: repeat(4, 258px);
     row-gap: 28px;
     column-gap: 30px;
+    @include media-breakpoint($breakpoint-laptop) {
+      column-gap: 20px;
+    }
     .activity {
       grid-column: span 3;
+    }
+    .user-datas {
+      grid-row: span 3;
+    }
+  }
+  @include media-breakpoint($breakpoint-laptop) {
+    margin-top: 25px;
+    &-container {
+      grid-template-rows: 200px 80px 180px;
+      grid-template-columns: repeat(3, 258px);
+    }
+    .user-datas {
+      grid-column: span 3;
+      grid-row: span 1;
     }
   }
 }

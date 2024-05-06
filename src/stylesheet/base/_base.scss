@@ -7,6 +7,7 @@
  */
 html {
   box-sizing: border-box;
+  height: 100%;
 }
 
 *,
@@ -19,7 +20,10 @@ html {
  * Basic styles for main
  */
 main {
-  margin: 68px 90px 86px 109px + $vertical-nav-width;
+  padding: 68px 90px 80px 109px + $vertical-nav-width;
+  @include media-breakpoint($breakpoint-laptop) {
+    padding: 50px 50px 50px 40px + $vertical-nav-width;
+  }
 }
 
 /**

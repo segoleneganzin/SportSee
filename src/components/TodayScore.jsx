@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { ResponsiveContainer, RadialBarChart, RadialBar } from 'recharts';
 
 /**
- * Component representing the dashboard header.
+ * Component representing the today score chart.
  * @param {object} props
  * @param {object} props.user
  * @returns {JSX.Element}
@@ -11,8 +11,7 @@ import { ResponsiveContainer, RadialBarChart, RadialBar } from 'recharts';
 const TodayScore = ({ user }) => {
   const { todayScore } = user;
   const todayScorePercentage = todayScore * 100;
-  console.log(todayScore);
-  console.log(todayScorePercentage);
+
   return (
     <section className='container today-score'>
       <h2 className='today-score__title container__title'>Score</h2>
