@@ -5,14 +5,18 @@ body {
 }
 .menu__link,
 .vertical-section__copyright,
-.container__title {
+.average-sessions__title {
   color: $white;
 }
 .dashboard-header__firstName {
   color: $brand-color;
 }
-.user-datas-card__category {
+.user-datas-card__category,
+.today-score__legend {
   color: $grey;
+}
+.today-score__percentage {
+  color: $black;
 }
 /****************************************************** FONTS */
 
@@ -28,13 +32,20 @@ body {
   font-weight: 500;
 }
 .bold,
-.user-datas-card__value {
+.user-datas-card__value,
+.today-score__percentage {
   font-weight: 700;
 }
 .light-font {
   font-weight: 400;
 }
 /***************************************** font size */
+.today-score__legend {
+  font-size: 1rem;
+}
+.today-score__percentage {
+  font-size: 1.625rem;
+}
 .menu__link {
   font-size: 1.5rem;
 }

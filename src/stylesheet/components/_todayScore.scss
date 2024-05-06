@@ -1,3 +1,29 @@
 .today-score {
   background-color: $light-grey;
+  &__title {
+    position: absolute;
+    margin: 24px 0 0 30px;
+  }
+  &__legend {
+    @include flex-col;
+    align-items: center;
+    background-color: $white;
+    border-radius: $rounded;
+    height: 150px;
+    justify-content: center;
+    padding-top: 20px;
+    width: 150px;
+    &-container {
+      @include fullHeightWidth;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      left: 0;
+      position: absolute;
+      top: 0;
+    }
+  }
+  &__percentage {
+    padding-bottom: 8px;
+  }
 }

@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import PropTypes from 'prop-types';
 import {
   ResponsiveContainer,
@@ -7,7 +6,6 @@ import {
   PolarAngleAxis,
   Radar,
   PolarRadiusAxis,
-  Text,
 } from 'recharts';
 import PerformanceCustomTick from './customChartElements/PerformanceCustomTick';
 
