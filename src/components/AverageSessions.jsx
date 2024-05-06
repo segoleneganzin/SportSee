@@ -7,7 +7,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from 'recharts';
-import AverageSessionsCustomTooltip from './AverageSessionsCustomTooltip';
+import AverageSessionsCustomTooltip from './customChartElements/AverageSessionsCustomTooltip';
 
 /**
  * Component representing the dashboard header.

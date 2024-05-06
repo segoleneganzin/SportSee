@@ -24,19 +24,16 @@ const Dashboard = () => {
   const [error, setError] = useState(false);
   const { userId } = useParams(); // get id from url - result is string, we must cast into Number
   const navigate = useNavigate(); // manage redirection in case of unknown userId
-
   useEffect(() => {
     const fetchDatas = async () => {
       try {
         setError(false);
-        const userById = await getUserById(Number(userId));
-        const userActivityById = await getUserActivityById(Number(userId));
+        const userById = await getUserById(userId);
+        const userActivityById = await getUserActivityById(userId);
         const userAverageSessionsById = await getUserAverageSessionsById(
-          Number(userId)
+          userId
         );
-        const userPerformanceById = await getUserPerformanceById(
-          Number(userId)
-        );
+        const userPerformanceById = await getUserPerformanceById(userId);
         setUser(userById);
         setUserActivity(userActivityById);
         setUserAverageSessions(userAverageSessionsById);

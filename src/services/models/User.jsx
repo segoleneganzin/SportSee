@@ -16,14 +16,14 @@
 
 export const User = (user) => {
   const {
-    userId,
+    id,
     userInfos: { firstName, lastName, age },
     todayScore,
     score,
     keyData: { calorieCount, proteinCount, carbohydrateCount, lipidCount },
   } = user;
   return {
-    userId,
+    userId: id,
     firstName,
     lastName,
     age,

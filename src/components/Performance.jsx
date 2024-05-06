@@ -1,5 +1,15 @@
 /* eslint-disable no-unused-vars */
 import PropTypes from 'prop-types';
+import {
+  ResponsiveContainer,
+  RadarChart,
+  PolarGrid,
+  PolarAngleAxis,
+  Radar,
+  PolarRadiusAxis,
+  Text,
+} from 'recharts';
+import PerformanceCustomTick from './customChartElements/PerformanceCustomTick';
 
 /**
  * Component representing the dashboard header.
@@ -10,13 +20,33 @@ import PropTypes from 'prop-types';
 const Performance = ({ userPerformance }) => {
   return (
     <section className='container performance'>
-      {/* <hr />
-      {userPerformance.data.map((data, index) => (
-        <p key={index}>
-          {userPerformance.kind[data.kind]} :{data.value}
-        </p>
-      ))}
-      <hr /> */}
+      <ResponsiveContainer>
+        <RadarChart
+          outerRadius={90}
+          innerRadius={0}
+          data={userPerformance.data}
+        >
+          <PolarGrid radialLines={false} stroke={'#fff'} strokeWidth={1} />
+          <PolarAngleAxis
+            dataKey='kind'
+            tickLine={false}
+            tick={<PerformanceCustomTick />}
+          />
+          <PolarRadiusAxis
+            axisLine={false}
+            tick={false}
+            domain={[0, 250]}
+            tickCount={6}
+          />
+          <Radar
+            name='kind'
+            dataKey='value'
+            stroke='none'
+            fill='#ff0101'
+            fillOpacity={0.7}
+          />
+        </RadarChart>
+      </ResponsiveContainer>
     </section>
   );
 };
