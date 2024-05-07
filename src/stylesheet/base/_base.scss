@@ -7,7 +7,6 @@
  */
 html {
   box-sizing: border-box;
-  height: 100%;
 }
 
 *,
@@ -20,9 +19,12 @@ html {
  * Basic styles for main
  */
 main {
-  padding: 68px 90px 80px 109px + $vertical-nav-width;
-  @include media-breakpoint($breakpoint-laptop) {
-    padding: 50px 50px 50px 40px + $vertical-nav-width;
+  @include flex-col;
+  padding-bottom: 150px;
+  @include min-media-breakpoint($breakpoint-tablet) {
+    flex-direction: row;
+    min-height: 88.3vh;
+    padding-bottom: 0px;
   }
 }
 
@@ -32,5 +34,18 @@ main {
 a {
   text-decoration: none;
   cursor: pointer;
+  width: fit-content;
+}
+
+/**
+ * Basic styles for buttons
+ */
+.btn {
+  background-color: $black;
+  border: 1px solid $brand-color;
+  border-radius: $smallRadius;
+  box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
+  cursor: pointer;
+  padding: 10px 15px;
   width: fit-content;
 }

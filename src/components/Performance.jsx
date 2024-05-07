@@ -18,7 +18,7 @@ import PerformanceCustomTick from './customChartElements/PerformanceCustomTick';
 const Performance = ({ userPerformance }) => {
   return (
     <section className='container performance'>
-      <ResponsiveContainer>
+      <ResponsiveContainer width='100%' height='100%'>
         <RadarChart
           outerRadius={90}
           innerRadius={0}

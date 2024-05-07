@@ -6,9 +6,8 @@ const PerformanceCustomTick = ({ payload, x, y, cx, cy }) => {
       y={y + (y - cy) / 20}
       x={x + (x - cx) / 4}
       textAnchor='middle'
-      fontSize='0.75rem'
       fill='#fff'
-      className='custom-tick'
+      className='performance__kind'
     >
       {payload.value}
     </text>

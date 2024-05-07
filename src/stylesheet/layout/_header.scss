@@ -9,8 +9,9 @@
   height: $header-height;
   justify-content: space-between;
   padding-left: 29px;
+  padding-right: 29px;
   width: 100%;
-  @include media-breakpoint($breakpoint-laptop) {
-    // padding: 66px 120px 58px;
+  @include min-media-breakpoint($breakpoint-laptop) {
+    padding-right: 0px;
   }
 }

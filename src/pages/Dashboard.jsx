@@ -62,20 +62,18 @@ const Dashboard = () => {
 
   return isLoading ? (
     // TODO loader
-    <main>Loading</main>
+    <>Loading</>
   ) : (
-    <main>
+    <div className='dashboard page-content'>
       <DashboardHeader user={user} />
       <div className='dashboard__content'>
-        <div className='dashboard__content-container'>
-          <Activity userActivity={userActivity} />
-          <UserDatas user={user} />
-          <AverageSessions userAverageSessions={userAverageSessions} />
-          <Performance userPerformance={userPerformance} />
-          <TodayScore user={user} />
-        </div>
+        <Activity userActivity={userActivity} />
+        <UserDatas user={user} />
+        <AverageSessions userAverageSessions={userAverageSessions} />
+        <Performance userPerformance={userPerformance} />
+        <TodayScore user={user} />
       </div>
-    </main>
+    </div>
   );
 };
 

@@ -2,21 +2,49 @@
   @include flex-col;
   align-items: center;
   background-color: $black;
-  height: 100%;
+  bottom: 0;
+  gap: 10px;
+  height: auto;
   justify-content: center;
-  position: absolute;
-  top: 0;
-  width: $vertical-nav-width;
-  z-index: -1;
+  padding: 20px;
+  position: fixed;
+  width: 100%;
+  z-index: 99;
   &__nav {
-    @include flex-col;
+    display: flex;
     gap: 20px;
     &-link {
-      height: 64px;
+      height: 50px;
+      img {
+        height: 50px;
+      }
     }
   }
-  &__copyright {
-    position: absolute;
-    bottom: 5%;
+
+  @include min-media-breakpoint($breakpoint-tablet) {
+    padding-block-end: 110px;
+    position: relative;
+    width: 80px;
+    &__nav {
+      flex-direction: column;
+    }
+    &__copyright {
+      bottom: 59px;
+      position: absolute;
+      transform: rotate(180deg);
+      writing-mode: vertical-rl;
+    }
+  }
+  @include min-media-breakpoint($breakpoint-laptopXL) {
+    min-height: 933px;
+  }
+  @include min-media-breakpoint($breakpoint-laptopXL) {
+    &__nav-link {
+      height: 64px;
+      img {
+        height: 64px;
+      }
+    }
+    width: $vertical-nav-width;
   }
 }

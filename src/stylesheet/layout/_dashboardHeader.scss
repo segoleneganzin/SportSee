@@ -1,8 +1,13 @@
 .dashboard-header {
   @include flex-col;
-  gap: 41px;
+  gap: 20px;
   width: fit-content;
-  @include media-breakpoint($breakpoint-laptop) {
-    gap: 20px;
+  @include min-media-breakpoint($breakpoint-laptop) {
+    flex-direction: row;
+    align-items: baseline;
+  }
+  @include min-media-breakpoint($breakpoint-laptopXL) {
+    flex-direction: column;
+    gap: 41px;
   }
 }

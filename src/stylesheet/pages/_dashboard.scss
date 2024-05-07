@@ -1,31 +1,56 @@
-.dashboard__content {
-  margin-top: 77px;
-  gap: 32px;
-  &-container {
-    display: grid;
-    grid-template-rows: 320px 263px;
-    grid-template-columns: repeat(4, 258px);
-    row-gap: 28px;
-    column-gap: 30px;
-    @include media-breakpoint($breakpoint-laptop) {
+.dashboard {
+  &__content {
+    @include flex-col;
+    align-items: center;
+    gap: 30px;
+  }
+
+  @include min-media-breakpoint($breakpoint-tablet) {
+    &__content {
+      display: grid;
       column-gap: 20px;
-    }
-    .activity {
-      grid-column: span 3;
-    }
-    .user-datas {
-      grid-row: span 3;
+      grid-template-rows: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
+      place-items: center;
+      row-gap: 0px;
+      .activity {
+        grid-column: span 2;
+      }
+      .user-datas {
+        grid-column: span 2;
+        grid-row: span 1;
+      }
     }
   }
-  @include media-breakpoint($breakpoint-laptop) {
-    margin-top: 25px;
-    &-container {
-      grid-template-rows: 200px 80px 180px;
-      grid-template-columns: repeat(3, 258px);
+
+  @include min-media-breakpoint($breakpoint-laptop) {
+    &__content {
+      grid-template-rows: 200px 100px 250px;
+      grid-template-columns: repeat(3, 1fr);
+      row-gap: 10px;
+      .activity {
+        grid-column: span 3;
+      }
+      .user-datas {
+        grid-column: span 3;
+        grid-row: span 1;
+      }
     }
-    .user-datas {
-      grid-column: span 3;
-      grid-row: span 1;
+  }
+
+  @include min-media-breakpoint($breakpoint-laptopXL) {
+    &__content {
+      column-gap: 30px;
+      grid-template-columns: repeat(4, 258px);
+      grid-template-rows: 320px 263px;
+      row-gap: 28px;
+      .activity {
+        grid-column: span 3;
+      }
+      .user-datas {
+        grid-column: span 1;
+        grid-row: span 2;
+      }
     }
   }
 }

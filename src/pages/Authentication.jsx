@@ -20,21 +20,21 @@ const Authentication = () => {
   }, [isAuth, navigate, userId]);
 
   return (
-    <main>
-      <h1>Simulation d&apos;authentification</h1>
-      <p>
+    <div className='authentication page-content'>
+      <h1 className='title1'>Simulation d&apos;authentification</h1>
+      <p className='subtitle'>
         Pour le moment on sélectionne manuellement l&apos;utilisateur, on
         suppose qu&apos;ensuite on mettra en place l&apos;authentification et
         l&apos;id de l&apos;utilisateur sera automatiquement ajouter à
         l&apos;url lors de la redirection vers la page d&apos;accueil
       </p>
-      <button onClick={() => connection(12)}>
+      <button onClick={() => connection(12)} className='btn'>
         Connexion avec l&apos;utilisateur 12
       </button>
-      <button onClick={() => connection(18)}>
+      <button onClick={() => connection(18)} className='btn'>
         Connexion avec l&apos;utilisateur 18
       </button>
-    </main>
+    </div>
   );
 };
 

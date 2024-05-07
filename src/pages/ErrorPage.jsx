@@ -10,10 +10,10 @@ import PropTypes from 'prop-types';
  */
 const ErrorPage = ({ errorType, errorMessage }) => {
   return (
-    <main className='error-page'>
+    <div className='error-page page-content'>
       <h1 className='error-page__type'>{errorType}</h1>
       <p className='error-page__message'>{errorMessage}</p>
-    </main>
+    </div>
   );
 };
 ErrorPage.propTypes = {

@@ -6,10 +6,13 @@ const Profil = () => {
   const { logout } = useUser();
 
   return (
-    <main>
-      <p>Profil de l&apos;utilisateur {userId}</p>
-      <button onClick={logout}>Déconnexion</button>
-    </main>
+    <div className='community page-content'>
+      <h1 className='title1'>Profil</h1>
+      <p className='subtitle'>Utilisateur {userId}</p>
+      <button onClick={logout} className='btn'>
+        Déconnexion
+      </button>
+    </div>
   );
 };
 

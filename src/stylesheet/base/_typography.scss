@@ -5,7 +5,8 @@ body {
 }
 .menu__link,
 .vertical-section__copyright,
-.average-sessions__title {
+.average-sessions__title,
+.btn {
   color: $white;
 }
 .dashboard-header__firstName {
@@ -20,7 +21,8 @@ body {
 }
 /****************************************************** FONTS */
 
-body {
+body,
+.btn {
   font-family: 'Roboto', sans-serif;
 }
 /***************************************** line height */
@@ -33,7 +35,8 @@ body {
 }
 .bold,
 .user-datas-card__value,
-.today-score__percentage {
+.today-score__percentage,
+.btn {
   font-weight: 700;
 }
 .light-font {
@@ -41,44 +44,69 @@ body {
 }
 /***************************************** font size */
 .today-score__legend {
-  font-size: 1rem;
+  font-size: 0.7rem;
 }
 .today-score__percentage {
-  font-size: 1.625rem;
+  font-size: 1.2rem;
 }
 .menu__link {
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 .title1 {
-  font-size: 3rem;
+  font-size: 2rem;
 }
 .subtitle {
-  font-size: 1.125rem;
+  font-size: 0.8rem;
 }
 .container__title {
-  font-size: 0.938rem;
+  font-size: 0.8rem;
 }
 .user-datas-card__value {
-  font-size: 1.25rem;
-  @include media-breakpoint($breakpoint-laptop) {
-    font-size: 1rem;
-  }
+  font-size: 1rem;
 }
 .activity__legend,
 .user-datas-card__category {
-  font-size: 0.875rem;
+  font-size: 0.7rem;
 }
 .performance__kind,
 .vertical-section__copyright {
-  font-size: 0.75rem;
+  font-size: 0.6rem;
 }
 .average-sessions__custom-tooltip {
   font-size: 0.5rem;
 }
 
-/***************************************** text transform */
-.vertical-section__copyright {
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
+@include min-media-breakpoint($breakpoint-laptopXL) {
+  .today-score__legend {
+    font-size: 1rem;
+  }
+  .today-score__percentage {
+    font-size: 1.625rem;
+  }
+  .menu__link {
+    font-size: 1.5rem;
+  }
+  .title1 {
+    font-size: 3rem;
+  }
+  .subtitle {
+    font-size: 1.125rem;
+  }
+  .container__title {
+    font-size: 0.938rem;
+  }
+  .user-datas-card__value {
+    font-size: 1.25rem;
+  }
+  .activity__legend,
+  .user-datas-card__category {
+    font-size: 0.875rem;
+  }
+  .performance__kind,
+  .vertical-section__copyright {
+    font-size: 0.75rem;
+  }
+  .average-sessions__custom-tooltip {
+    font-size: 0.5rem;
+  }
 }
-/***************************************** text shadow */

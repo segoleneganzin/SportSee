@@ -6,7 +6,7 @@
   align-items: center;
   position: relative;
   &__title {
-    margin: 29px 77px 0 34px;
+    margin: 15px 100px 0 20px;
     opacity: 0.5;
   }
   &__custom-tooltip {
@@ -28,5 +28,11 @@
     bottom: 0;
     padding: 22px 0px 20px;
     position: absolute;
+  }
+
+  @include min-media-breakpoint($breakpoint-tablet) {
+    &__title {
+      margin: 29px 77px 0 34px;
+    }
   }
 }

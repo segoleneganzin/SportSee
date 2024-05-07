@@ -9,8 +9,10 @@ const PageLayout = ({ children }) => {
   return (
     <>
       {isAuth && <Header />}
-      {isAuth && <VerticalNav />}
-      {children}
+      <main>
+        {isAuth && <VerticalNav />}
+        {children}
+      </main>
     </>
   );
 };

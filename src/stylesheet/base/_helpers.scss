@@ -5,10 +5,33 @@
 .container {
   border-radius: $smallRadius;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.02);
-  height: 100%;
+  height: 263px;
   overflow: hidden;
   position: relative;
-  width: 100%;
+  width: 258px;
+  @include min-media-breakpoint($breakpoint-laptop) {
+    height: 263px;
+    width: 258px;
+  }
+}
+
+.page-content {
+  @include flex-col;
+  gap: 30px;
+  padding: 20px;
+  @include min-media-breakpoint($breakpoint-tablet) {
+    padding: 40px 70px;
+  }
+  @include min-media-breakpoint($breakpoint-laptop) {
+    padding: 20px 15px 0px;
+  }
+  @include min-media-breakpoint($breakpoint-laptopXL) {
+    gap: 77px;
+    margin: 48px 90px 88px;
+  }
+  @include min-media-breakpoint($breakpoint-desktopXL) {
+    margin: 32.3px auto;
+  }
 }
 
 /**

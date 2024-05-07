@@ -1,9 +1,54 @@
 .menu {
-  display: flex;
-  gap: 219px;
-  padding-right: 91px;
-  @include media-breakpoint($breakpoint-laptopXL) {
-    gap: 100px;
-    padding-right: 25px;
+  display: none;
+  gap: 100px;
+  padding-right: 25px;
+  &--responsive {
+    animation: open-hamburger 200ms forwards;
+    background-color: $black;
+    border-radius: 0 0 0 50px;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    padding: 20px;
+    position: absolute;
+    right: 0;
+    top: $header-height;
+    transform-origin: top;
+    width: fit-content;
+    z-index: 99;
+    .menu__link {
+      padding: 15px;
+    }
+  }
+  @include min-media-breakpoint($breakpoint-laptopXL) {
+    gap: 219px;
+    padding-right: 91px;
+  }
+  @include min-media-breakpoint($breakpoint-laptop) {
+    display: flex;
+    padding-right: 0px;
+  }
+}
+/* burger icon  */
+.burger-icon {
+  display: block;
+  span {
+    display: block;
+    height: 5px;
+    margin: 6px 0;
+    width: 35px;
+    background-color: $white;
+  }
+  @include min-media-breakpoint($breakpoint-laptop) {
+    display: none;
+  }
+}
+
+@keyframes open-hamburger {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
   }
 }

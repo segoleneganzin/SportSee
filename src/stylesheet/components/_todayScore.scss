@@ -2,17 +2,17 @@
   background-color: $light-grey;
   &__title {
     position: absolute;
-    margin: 24px 0 0 30px;
+    margin: 15px 0 0 20px;
   }
   &__legend {
     @include flex-col;
     align-items: center;
     background-color: $white;
     border-radius: $rounded;
-    height: 150px;
+    height: 58%;
     justify-content: center;
-    padding-top: 20px;
-    width: 150px;
+    padding-top: 8px;
+    width: 58%;
     &-container {
       @include fullHeightWidth;
       align-items: center;
@@ -25,5 +25,10 @@
   }
   &__percentage {
     padding-bottom: 8px;
+  }
+  @include min-media-breakpoint($breakpoint-laptop) {
+    &__title {
+      margin: 24px 0 0 30px;
+    }
   }
 }
