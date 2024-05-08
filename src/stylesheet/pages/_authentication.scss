@@ -12,4 +12,20 @@
   .subtitle {
     font-style: italic;
   }
+  .btn {
+    box-shadow: none;
+  }
+  @include min-media-breakpoint($breakpoint-tablet) {
+    .subtitle {
+      max-width: 60%;
+    }
+  }
+  @include min-media-breakpoint($breakpoint-desktop) {
+    border-radius: $largeRadius;
+    height: fit-content;
+    margin: auto;
+    max-width: 1000px;
+    padding: 100px;
+    width: fit-content;
+  }
 }
