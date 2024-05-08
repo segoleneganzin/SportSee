@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useUser } from '../utils/hooks/useUser';
 
 const Menu = () => {
-  const { userId } = useUser();
+  const { currentUserId } = useUser();
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
   const openResponsiveMenu = () => {
     setHamburgerOpen(!hamburgerOpen);
@@ -11,16 +11,16 @@ const Menu = () => {
   return (
     <>
       <nav className={hamburgerOpen ? 'menu--responsive' : 'menu'}>
-        <a href={`/accueil/${userId}`} className='menu__link'>
+        <a href={`/accueil/${currentUserId}`} className='menu__link'>
           Accueil
         </a>
-        <a href={`/profil/${userId}`} className='menu__link'>
+        <a href={`/profil/${currentUserId}`} className='menu__link'>
           Profil
         </a>
-        <a href={`/reglages/${userId}`} className='menu__link'>
+        <a href={`/reglages/${currentUserId}`} className='menu__link'>
           Réglages
         </a>
-        <a href={`/communaute/${userId}`} className='menu__link'>
+        <a href={`/communaute/${currentUserId}`} className='menu__link'>
           Communauté
         </a>
       </nav>

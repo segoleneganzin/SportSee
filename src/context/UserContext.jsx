@@ -8,8 +8,8 @@ const UserContext = createContext();
 export const UserProvider = ({ children }) => {
   const navigate = useNavigate();
 
-  const [userId, setUserId] = useState(() =>
-    JSON.parse(localStorage.getItem('userId'))
+  const [currentUserId, setCurrentUserId] = useState(() =>
+    JSON.parse(localStorage.getItem('currentUserId'))
   );
 
   const [isAuth, setIsAuth] = useState(
@@ -23,25 +23,27 @@ export const UserProvider = ({ children }) => {
   }, [isAuth]);
 
   useEffect(() => {
-    localStorage.setItem('userId', userId);
-  }, [userId]);
+    localStorage.setItem('currentUserId', currentUserId);
+  }, [currentUserId]);
 
   const login = (userIdLog) => {
-    setUserId(userIdLog);
+    setCurrentUserId(userIdLog);
     setIsAuth(true);
   };
 
   const logout = () => {
     setIsAuth(false);
-    setUserId(null);
+    setCurrentUserId(null);
     navigate('/');
   };
 
-  console.log('userId => ' + userId + ' : ' + typeof userId);
+  console.log('userId => ' + currentUserId + ' : ' + typeof userId);
   console.log('isAuth => ' + isAuth + ' : ' + typeof isAuth);
 
   return (
-    <UserContext.Provider value={{ userId, setUserId, isAuth, login, logout }}>
+    <UserContext.Provider
+      value={{ currentUserId, setCurrentUserId, isAuth, login, logout }}
+    >
       {children}
     </UserContext.Provider>
   );

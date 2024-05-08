@@ -6,7 +6,8 @@ body {
 .menu__link,
 .vertical-section__copyright,
 .average-sessions__title,
-.btn {
+.btn,
+.authentication {
   color: $white;
 }
 .dashboard-header__firstName {
@@ -19,6 +20,7 @@ body {
 .today-score__percentage {
   color: $black;
 }
+
 /****************************************************** FONTS */
 
 body,
@@ -39,7 +41,8 @@ body {
 .btn {
   font-weight: 700;
 }
-.light-font {
+.light-font,
+.authentication .subtitle {
   font-weight: 400;
 }
 /***************************************** font size */

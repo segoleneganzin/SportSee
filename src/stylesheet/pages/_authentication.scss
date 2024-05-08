@@ -1,0 +1,15 @@
+.authentication {
+  @include flex-col;
+  align-items: center;
+  background-color: $black;
+  height: 100vh;
+  justify-content: center;
+  .title1,
+  .subtitle {
+    text-align: center;
+    width: fit-content;
+  }
+  .subtitle {
+    font-style: italic;
+  }
+}

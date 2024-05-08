@@ -15,7 +15,6 @@ import UserDatas from '../layouts/UserDatas.jsx';
 import { useUser } from '../utils/hooks/useUser.jsx';
 
 const Dashboard = () => {
-  const { isAuth } = useUser();
   const [user, setUser] = useState({});
   const [userActivity, setUserActivity] = useState({});
   const [userAverageSessions, setUserAverageSessions] = useState({});
@@ -24,6 +23,8 @@ const Dashboard = () => {
   const [error, setError] = useState(false);
   const { userId } = useParams(); // get id from url - result is string, we must cast into Number
   const navigate = useNavigate(); // manage redirection in case of unknown userId
+  const { currentUserId } = useUser();
+
   useEffect(() => {
     const fetchDatas = async () => {
       try {
@@ -43,26 +44,27 @@ const Dashboard = () => {
         setError(true);
       }
     };
-    fetchDatas();
-  }, [userId]);
-
-  // if id doesn't match with any user, redirecting to 404 error page
-  useEffect(() => {
-    if (error) {
-      navigate('/erreur404');
+    // if url userId is different of current userId, then navigate to currentUser dashboard
+    if (userId != currentUserId) {
+      console.log(userId, currentUserId);
+      console.log('coucou2');
+      navigate(`/accueil/${currentUserId}`);
+    } else {
+      fetchDatas();
     }
-  }, [error, navigate]);
-
-  // if user isn't authenticate, go to authentication page
-  useEffect(() => {
-    if (!isAuth) {
-      navigate('/');
-    }
-  }, [isAuth, navigate]);
+  }, [userId, currentUserId, navigate]);
 
   return isLoading ? (
     // TODO loader
     <>Loading</>
+  ) : error ? (
+    <div className='dashboard page-content'>
+      <h1 className='title1'>Oups !</h1>
+      <p className='subtitle'>
+        Une erreru s&apos;est produite... <br />
+        Veuillez recharger la page.
+      </p>
+    </div>
   ) : (
     <div className='dashboard page-content'>
       <DashboardHeader user={user} />
