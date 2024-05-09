@@ -48,7 +48,6 @@ const Dashboard = () => {
     // if url userId is different of current userId, then navigate to currentUser dashboard
     if (userId != currentUserId) {
       console.log(userId, currentUserId);
-      console.log('coucou2');
       navigate(`/accueil/${currentUserId}`);
     } else {
       fetchDatas();
@@ -56,13 +55,12 @@ const Dashboard = () => {
   }, [userId, currentUserId, navigate]);
 
   return isLoading ? (
-    // TODO loader
     <Loader />
   ) : error ? (
     <div className='dashboard page-content'>
       <h1 className='title1'>Oups !</h1>
       <p className='subtitle'>
-        Une erreru s&apos;est produite... <br />
+        Une erreur s&apos;est produite... <br />
         Veuillez recharger la page.
       </p>
     </div>

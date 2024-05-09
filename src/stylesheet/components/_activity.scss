@@ -1,12 +1,45 @@
 .activity {
-  border: 2px solid black;
   background-color: $light-grey;
   border-radius: $smallRadius;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.02);
-  height: 200px;
-  width: 100%;
-  overflow: hidden;
   display: flex;
+  height: 200px;
+  position: relative;
+  width: 100%;
+  &__custom-tooltip {
+    @include flex-col;
+    background-color: $brand-color;
+    gap: 30px;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    top: -40px;
+  }
+  &__legend {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    &-container {
+      display: flex;
+      gap: 52px;
+      position: absolute;
+      right: 26px;
+      top: -50%;
+      width: max-content;
+    }
+    &-color {
+      border-radius: $rounded;
+      display: inline-block;
+      height: 8px;
+      margin-right: 5px;
+      width: 8px;
+    }
+  }
+  .recharts-responsive-container {
+    bottom: 0;
+    padding: 22px 0px 20px;
+    position: absolute;
+  }
   @include min-media-breakpoint($breakpoint-tablet) {
     height: 320px;
     width: 100%;

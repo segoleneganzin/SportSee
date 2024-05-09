@@ -7,14 +7,16 @@ body {
 .vertical-section__copyright,
 .average-sessions__title,
 .btn,
-.authentication {
+.authentication,
+.activity__custom-tooltip {
   color: $white;
 }
 .dashboard-header__firstName {
   color: $brand-color;
 }
 .user-datas-card__category,
-.today-score__legend {
+.today-score__legend,
+.activity__legend {
   color: $grey;
 }
 .today-score__percentage {
@@ -75,8 +77,9 @@ body {
 .vertical-section__copyright {
   font-size: 0.6rem;
 }
-.average-sessions__custom-tooltip {
-  font-size: 0.5rem;
+.average-sessions__custom-tooltip,
+.activity__custom-tooltip {
+  font-size: 0.7rem;
 }
 
 @include min-media-breakpoint($breakpoint-laptopXL) {
@@ -108,8 +111,5 @@ body {
   .performance__kind,
   .vertical-section__copyright {
     font-size: 0.75rem;
-  }
-  .average-sessions__custom-tooltip {
-    font-size: 0.5rem;
   }
 }
