@@ -13,6 +13,7 @@ import Performance from '../components/Performance.jsx';
 import TodayScore from '../components/TodayScore.jsx';
 import UserDatas from '../layouts/UserDatas.jsx';
 import { useUser } from '../utils/hooks/useUser.jsx';
+import Loader from '../components/Loader.jsx';
 
 const Dashboard = () => {
   const [user, setUser] = useState({});
@@ -56,7 +57,7 @@ const Dashboard = () => {
 
   return isLoading ? (
     // TODO loader
-    <>Loading</>
+    <Loader />
   ) : error ? (
     <div className='dashboard page-content'>
       <h1 className='title1'>Oups !</h1>

@@ -15,7 +15,8 @@
 
 // 5. Components
 @import 'components/averageSessions', 'components/activity',
-  'components/performance', 'components/todayScore', 'components/userDatasCard';
+  'components/performance', 'components/todayScore', 'components/userDatasCard',
+  'components/loader';
 
 // 6. Page-specific styles
 @import 'pages/dashboard', 'pages/authentication';

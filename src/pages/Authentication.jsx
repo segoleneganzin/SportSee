@@ -4,7 +4,6 @@ import { useUser } from '../utils/hooks/useUser';
 import logo from '../assets/images/logo.png';
 
 const Authentication = () => {
-  // TODO design
   const navigate = useNavigate();
   const { currentUserId, login, isAuth } = useUser();
 
