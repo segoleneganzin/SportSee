@@ -37,7 +37,7 @@ export const UserProvider = ({ children }) => {
     navigate('/');
   };
 
-  console.log('userId => ' + currentUserId + ' : ' + typeof userId);
+  console.log('userId => ' + currentUserId + ' : ' + typeof currentUserId);
   console.log('isAuth => ' + isAuth + ' : ' + typeof isAuth);
 
   return (

@@ -1,9 +1,5 @@
 .today-score {
   background-color: $light-grey;
-  &__title {
-    position: absolute;
-    margin: 15px 0 0 20px;
-  }
   &__legend {
     @include flex-col;
     align-items: center;
@@ -25,10 +21,5 @@
   }
   &__percentage {
     padding-bottom: 8px;
-  }
-  @include min-media-breakpoint($breakpoint-laptop) {
-    &__title {
-      margin: 24px 0 0 30px;
-    }
   }
 }

@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import PropTypes from 'prop-types';
 import {
   ResponsiveContainer,
@@ -10,6 +9,7 @@ import {
   Legend,
   Bar,
 } from 'recharts';
+
 import ActivityCustomTooltip from './customChartElements/ActivityCustomTooltip';
 import ActivityCustomLegend from './customChartElements/ActivityCustomLegend';
 
@@ -20,63 +20,68 @@ import ActivityCustomLegend from './customChartElements/ActivityCustomLegend';
  * @returns {JSX.Element}
  */
 const Activity = ({ userActivity }) => {
-  // to manage display datas, we transform day by its index
+  // to manage display datas, we add index for XAxis
   const dataWithIndex = userActivity.sessions.map((session, index) => ({
     ...session,
-    index: index + 1, // Ajoutez 1 à l'index pour commencer à partir de 1 au lieu de 0
+    index: index + 1, //bagin with 1 instead of 0
   }));
 
   return (
     <section className='activity'>
-      <h2 className='today-score__title container__title'>
-        Activité quotidienne
-      </h2>
+      <h2 className='activity__title container__title'>Activité quotidienne</h2>
       <ResponsiveContainer width='100%' height='90%'>
         <BarChart
           width={730}
           height={200}
           data={dataWithIndex}
           barGap='10'
-          barSize={10}
+          barSize={8}
+          margin={{ left: 50, right: 40 }}
         >
-          <CartesianGrid strokeDasharray='2 2' vertical={false} />
+          <CartesianGrid strokeDasharray='3' vertical={false} />
           <XAxis
             dataKey='index'
             tickLine={false}
             tick={{ fill: '#9B9EAC', fontWeight: 500, fontSize: 14 }}
             tickMargin={14}
             axisLine={false}
+            type='number'
+            domain={[1, 7]}
+            ticks={[1, 2, 3, 4, 5, 6, 7]}
           />
           <YAxis
             yAxisId='left'
             orientation='left'
             dataKey='calories'
-            tickCount={3}
             hide={true}
+            tickCount={7}
+            domain={['dataMin - 40', 'dataMax + 40']}
           />
           <YAxis
             yAxisId='right'
             dataKey='kilogram'
             orientation='right'
             type='number'
-            domain={['dataMin -5', 'dataMax + 5']}
+            domain={['dataMin - 1', 'dataMax + 1']}
             tickLine={false}
             axisLine={false}
-            tickMargin={20}
-            tickCount={3}
-            minTickGap={16}
+            tickMargin={45}
+            tickCount={4}
+            allowDecimals={false}
             tick={{ fill: '#9B9EAC', fontWeight: 500, fontSize: 14 }}
           />
           <Legend
             verticalAlign='top'
-            iconType='circle'
-            iconSize={8}
             height={60}
             align='right'
             width={300}
             content={<ActivityCustomLegend />}
           />
-          <Tooltip content={<ActivityCustomTooltip />} offset={70} />
+          <Tooltip
+            content={<ActivityCustomTooltip />}
+            offset={70}
+            cursor={{ opacity: 0.5 }}
+          />
           <Bar
             yAxisId='right'
             dataKey='kilogram'
