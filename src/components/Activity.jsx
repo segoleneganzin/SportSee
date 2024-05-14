@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import PropTypes from 'prop-types';
 import {
   ResponsiveContainer,
@@ -10,8 +11,8 @@ import {
   Bar,
 } from 'recharts';
 
-import ActivityCustomTooltip from './customChartElements/ActivityCustomTooltip';
-import ActivityCustomLegend from './customChartElements/ActivityCustomLegend';
+// import ActivityCustomTooltip from './customChartElements/ActivityCustomTooltip';
+// import ActivityCustomLegend from './customChartElements/ActivityCustomLegend';
 
 /**
  * Component representing the dashboard header.
@@ -25,6 +26,39 @@ const Activity = ({ userActivity }) => {
     ...session,
     index: index + 1, //bagin with 1 instead of 0
   }));
+
+  // custom legend
+  const ActivityCustomLegend = ({ payload }) => {
+    return (
+      <ul className='activity__legend-container'>
+        {payload.map((entry, index) => {
+          return (
+            <li key={index} className='activity__legend'>
+              <span
+                className='activity__legend-color'
+                style={{
+                  backgroundColor: entry.color,
+                }}
+              ></span>
+              {entry.value}
+            </li>
+          );
+        })}
+      </ul>
+    );
+  };
+
+  // custom tooltip
+  const ActivityCustomTooltip = ({ active, payload }) => {
+    return active && payload ? (
+      <div className='activity__custom-tooltip'>
+        <p>{`${payload[0].value}`}kg</p>
+        <p>{`${payload[1].value}`}kCal</p>
+      </div>
+    ) : (
+      ''
+    );
+  };
 
   return (
     <section className='activity'>

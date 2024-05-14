@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import PropTypes from 'prop-types';
 import {
   ResponsiveContainer,
@@ -7,7 +8,7 @@ import {
   Radar,
   PolarRadiusAxis,
 } from 'recharts';
-import PerformanceCustomTick from './customChartElements/PerformanceCustomTick';
+// import PerformanceCustomTick from './customChartElements/PerformanceCustomTick';
 
 /**
  * Component representing the dashboard header.
@@ -16,6 +17,21 @@ import PerformanceCustomTick from './customChartElements/PerformanceCustomTick';
  * @returns {JSX.Element}
  */
 const Performance = ({ userPerformance }) => {
+  // custom tick (distance from radar)
+  const PerformanceCustomTick = ({ payload, x, y, cx, cy }) => {
+    return (
+      <text
+        y={y + (y - cy) / 20}
+        x={x + (x - cx) / 4}
+        textAnchor='middle'
+        fill='#fff'
+        className='performance__kind'
+      >
+        {payload.value}
+      </text>
+    );
+  };
+
   return (
     <section className='container performance'>
       <ResponsiveContainer width='100%' height='100%'>

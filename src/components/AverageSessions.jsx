@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import PropTypes from 'prop-types';
 import {
   LineChart,
@@ -7,7 +8,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from 'recharts';
-import AverageSessionsCustomTooltip from './customChartElements/AverageSessionsCustomTooltip';
+// import AverageSessionsCustomTooltip from './customChartElements/AverageSessionsCustomTooltip';
 
 /**
  * Component representing the dashboard header.
@@ -49,6 +50,36 @@ const AverageSessions = ({ userAverageSessions }) => {
     extendedData.push(...data);
     // Sort the extended data array by the day index
     return extendedData.sort((a, b) => a.day - b.day);
+  };
+
+  //  custom tooltip
+  const AverageSessionsCustomTooltip = ({ active, payload, coordinate }) => {
+    let rightOverlayWidth, xPosition, yPosition, xLabelPosition, yLabelPosition;
+    const containerWidth = 305; // Width of the chart container => 258px * 118% (size of responsiveContainer)
+    if (active && payload) {
+      // Get cursor position
+      xPosition = coordinate ? coordinate.x : 0;
+      yPosition = coordinate ? coordinate.y : 0;
+      rightOverlayWidth = containerWidth - xPosition; // Calculate width of the semi-transparent overlay
+      xLabelPosition = xPosition > 230 ? xPosition - 40 : xPosition + 5;
+      yLabelPosition = yPosition - 35;
+    }
+    return active && payload ? (
+      <div className='average-sessions__custom-tooltip'>
+        <div
+          className='overlay'
+          style={{ width: rightOverlayWidth, left: xPosition }}
+        ></div>
+        <p
+          className='label'
+          style={{ top: yLabelPosition, left: xLabelPosition }}
+        >
+          {payload[0].value} min
+        </p>
+      </div>
+    ) : (
+      ''
+    );
   };
 
   return (

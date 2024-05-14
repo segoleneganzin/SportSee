@@ -42,6 +42,7 @@ const Dashboard = () => {
         setUserPerformance(userPerformanceById);
         setIsLoading(false);
       } catch (error) {
+        setIsLoading(false);
         setError(true);
       }
     };
