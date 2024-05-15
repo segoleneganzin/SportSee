@@ -17,31 +17,30 @@ const HeaderNav = () => {
   return (
     <>
       {/* nav links content */}
-      <nav className={hamburgerOpen ? 'menu--responsive' : 'menu'}>
-        <a href={`/accueil/${currentUserId}`} className='menu__link'>
+      <nav className={hamburgerOpen ? 'header-nav--responsive' : 'header-nav'}>
+        <a href={`/accueil/${currentUserId}`} className='header-nav__link'>
           Accueil
         </a>
-        <a href={`/profil/${currentUserId}`} className='menu__link'>
+        <a href={`/profil/${currentUserId}`} className='header-nav__link'>
           Profil
         </a>
-        <a href={`/reglages/${currentUserId}`} className='menu__link'>
+        <a href={`/reglages/${currentUserId}`} className='header-nav__link'>
           Réglages
         </a>
-        <a href={`/communaute/${currentUserId}`} className='menu__link'>
+        <a href={`/communaute/${currentUserId}`} className='header-nav__link'>
           Communauté
         </a>
       </nav>
       {/* hamburger menu display on device under 1024px */}
       <a
         href='#'
-        className='icon'
+        className='header-nav__burger-icon-link'
         onClick={openResponsiveMenu}
         aria-haspopup='true'
-        aria-controls='toggleNavbar'
         aria-expanded={hamburgerOpen}
         aria-label='Ouverture du menu'
       >
-        <span className='burger-icon'>
+        <span className='header-nav__burger-icon'>
           <span></span>
           <span></span>
           <span></span>

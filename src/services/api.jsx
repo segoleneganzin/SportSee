@@ -1,32 +1,32 @@
-// Api call + creating object
-// manage mocked datas or api
-
 import { fetchData } from './fetchData';
 import { User } from './models/User';
 import { UserActivity } from './models/UserActivity';
 import { UserAverageSessions } from './models/UserAverageSessions';
 import { UserPerformance } from './models/UserPerformance';
 
+// Api call + creating object
+
+// manage mocked datas or api
 const mockedDatas = true;
 
 /**
  * Manages data sourcing route
  * Mocked data files (json) must take the name of the dataType !!
+ * domain and uri depends of mockedDatas status
  * @param {number} userId
  * @param {string} dataType
  * @returns {object}
  */
 const getDatasById = async (userId, dataType) => {
-  const domain = mockedDatas
-    ? 'http://localhost:5173'
-    : 'http://localhost:3000';
-  let uri = mockedDatas
-    ? `/mocks/${dataType}.json`
-    : `/user/${userId}/${dataType}`;
-  if (dataType === 'user' && !mockedDatas) {
-    uri = `/user/${userId}`;
+  const port = mockedDatas ? '5173' : '3000';
+  let uri;
+  if (mockedDatas) {
+    uri = `/mocks/${dataType}.json`; // mockedDatas uri
+  } else {
+    uri =
+      dataType === 'user' ? `/user/${userId}` : `/user/${userId}/${dataType}`; // api uri
   }
-  return await fetchData(domain + uri, userId, mockedDatas);
+  return await fetchData('http://localhost:' + port + uri, userId, mockedDatas);
 };
 
 // ******* READ functions

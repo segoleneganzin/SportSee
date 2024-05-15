@@ -12,11 +12,11 @@ import { sports } from '../assets/datas/sports';
  */
 const VerticalNav = () => {
   return (
-    <nav className='vertical-section__nav'>
+    <nav className='vertical-nav'>
       {sports.map((item, index) => (
         <Link
           href={item.link}
-          className='vertical-section__nav-link'
+          className='vertical-nav__link'
           aria-label={item.name}
           key={index}
         >
