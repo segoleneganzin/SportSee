@@ -10,16 +10,16 @@
   position: relative;
   width: 258px;
   &__title {
+    left: 20px;
     position: absolute;
     top: 15px;
-    left: 20px;
   }
   @include min-media-breakpoint($breakpoint-laptop) {
     height: 263px;
     width: 258px;
     &__title {
-      top: 24px;
       left: 30px;
+      top: 24px;
     }
   }
 }
@@ -42,28 +42,4 @@
   @include min-media-breakpoint($breakpoint-desktopXL) {
     margin: 32.3px;
   }
-}
-
-/**
- * Hide text while making it readable for screen readers
- */
-.hide-text {
-  overflow: hidden;
-  padding: 0;
-  text-indent: 101%;
-  white-space: nowrap;
-}
-
-/**
- * Hide element while making it readable for screen readers
- */
-.visually-hidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
 }

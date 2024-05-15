@@ -1,9 +1,10 @@
 /***************************** TYPOGRAPHY *****************************/
 /****************************************************** COLORS */
-body {
+body,
+.today-score__percentage {
   color: $text-color;
 }
-.menu__link,
+.header-nav__link,
 .vertical-section__copyright,
 .average-sessions__title,
 .btn,
@@ -18,9 +19,6 @@ body {
 .today-score__legend,
 .activity__legend {
   color: $grey;
-}
-.today-score__percentage {
-  color: $black;
 }
 
 /****************************************************** FONTS */
@@ -54,7 +52,7 @@ body {
 .today-score__percentage {
   font-size: 1.2rem;
 }
-.menu__link {
+.header-nav__link {
   font-size: 1rem;
 }
 .title1 {
@@ -89,7 +87,7 @@ body {
   .today-score__percentage {
     font-size: 1.625rem;
   }
-  .menu__link {
+  .header-nav__link {
     font-size: 1.5rem;
   }
   .title1 {

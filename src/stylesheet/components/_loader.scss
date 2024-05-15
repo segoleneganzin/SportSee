@@ -9,14 +9,14 @@
   width: 100%;
   z-index: 99;
   &__element {
+    animation: loader 2s infinite ease-in-out;
+    animation-fill-mode: both;
     background-color: $brand-color;
     border-radius: $rounded;
     height: 50px;
     opacity: 1;
     width: 50px;
     z-index: 99;
-    animation: loader 2s infinite ease-in-out;
-    animation-fill-mode: both;
     @include media-breakpoint($breakpoint-mobile) {
       height: 20px;
       width: 20px;

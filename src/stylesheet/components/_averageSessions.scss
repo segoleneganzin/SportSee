@@ -1,9 +1,9 @@
 .average-sessions {
+  align-items: center;
   background-color: $brand-color;
   border-radius: $smallRadius;
   display: flex;
   flex-direction: column;
-  align-items: center;
   position: relative;
   &__title {
     margin-right: 100px;

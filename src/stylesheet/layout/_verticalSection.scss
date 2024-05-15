@@ -10,24 +10,11 @@
   position: fixed;
   width: 100%;
   z-index: 99;
-  &__nav {
-    display: flex;
-    gap: 20px;
-    &-link {
-      height: 50px;
-      img {
-        height: 50px;
-      }
-    }
-  }
 
   @include min-media-breakpoint($breakpoint-tablet) {
     padding-block-end: 110px;
     position: relative;
     width: 80px;
-    &__nav {
-      flex-direction: column;
-    }
     &__copyright {
       bottom: 59px;
       position: absolute;
@@ -39,12 +26,6 @@
     min-height: 933px;
   }
   @include min-media-breakpoint($breakpoint-laptopXL) {
-    &__nav-link {
-      height: 64px;
-      img {
-        height: 64px;
-      }
-    }
     width: $vertical-nav-width;
   }
 }

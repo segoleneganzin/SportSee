@@ -11,14 +11,14 @@
     background-color: $brand-color;
     gap: 30px;
     padding: 10px;
-    text-align: center;
     position: relative;
+    text-align: center;
     top: -40px;
   }
   &__legend {
+    align-items: center;
     display: flex;
     gap: 10px;
-    align-items: center;
     &-container {
       display: flex;
       gap: 52px;

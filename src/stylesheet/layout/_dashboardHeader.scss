@@ -3,8 +3,8 @@
   gap: 20px;
   width: fit-content;
   @include min-media-breakpoint($breakpoint-laptop) {
-    flex-direction: row;
     align-items: baseline;
+    flex-direction: row;
   }
   @include min-media-breakpoint($breakpoint-laptopXL) {
     flex-direction: column;
