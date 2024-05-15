@@ -10,20 +10,18 @@
   position: fixed;
   width: 100%;
   z-index: 99;
-
   @include min-media-breakpoint($breakpoint-tablet) {
+    height: calc(100vh);
     padding-block-end: 110px;
-    position: relative;
+    position: fixed;
     width: 80px;
+    z-index: -1;
     &__copyright {
       bottom: 59px;
       position: absolute;
       transform: rotate(180deg);
       writing-mode: vertical-rl;
     }
-  }
-  @include min-media-breakpoint($breakpoint-laptopXL) {
-    min-height: 933px;
   }
   @include min-media-breakpoint($breakpoint-laptopXL) {
     width: $vertical-nav-width;

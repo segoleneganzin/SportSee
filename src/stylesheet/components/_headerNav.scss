@@ -29,14 +29,14 @@
       width: 35px;
     }
   }
-  @include min-media-breakpoint($breakpoint-laptopXL) {
-    gap: 200px;
-  }
   @include min-media-breakpoint($breakpoint-laptop) {
     display: flex;
     &__burger-icon-link {
       display: none;
     }
+  }
+  @include min-media-breakpoint($breakpoint-laptopXL) {
+    gap: 200px;
   }
 }
 

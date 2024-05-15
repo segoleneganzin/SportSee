@@ -53,4 +53,31 @@
       }
     }
   }
+
+  @include min-media-breakpoint($breakpoint-desktopXL) {
+    &__content {
+      column-gap: 30px;
+      grid-template-columns: repeat(5, 258px);
+      grid-template-rows: 320px 263px;
+      row-gap: 5px;
+      .activity {
+        grid-column: span 3;
+        order: 0;
+      }
+      .average-sessions {
+        order: 1;
+      }
+      .performance {
+        order: 2;
+      }
+      .user-datas {
+        grid-column: span 4;
+        grid-row: span 1;
+        order: 3;
+      }
+      .today-score {
+        order: 4;
+      }
+    }
+  }
 }

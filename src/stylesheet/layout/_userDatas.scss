@@ -20,4 +20,8 @@
     grid-template-columns: 1fr;
     row-gap: 39px;
   }
+  @include min-media-breakpoint($breakpoint-desktopXL) {
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
