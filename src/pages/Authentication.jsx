@@ -3,13 +3,18 @@ import { useNavigate } from 'react-router-dom';
 import { useUser } from '../utils/hooks/useUser';
 import logo from '../assets/images/logo.png';
 
+/**
+ * Authentication page
+ * For the moment it's an authentication simulation
+ * @returns {JSX.Element}
+ */
 const Authentication = () => {
-  const navigate = useNavigate();
-  const { currentUserId, login, isAuth } = useUser();
+  const navigate = useNavigate(); // when isAuth is true, navigate to dashboard
+  const { currentUserId, login, isAuth } = useUser(); // get elements from user context
 
   const connection = (userId) => {
-    login(userId);
-    navigate(`/accueil/${userId}`);
+    login(userId); // Set isAuth to true
+    navigate(`/accueil/${userId}`); // navigate to user dashboard
   };
 
   // if user is already authenticate, go to dashboard page

@@ -8,17 +8,22 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from 'recharts';
-// import AverageSessionsCustomTooltip from './customChartElements/AverageSessionsCustomTooltip';
+// eslint-disable-next-line no-unused-vars
+import { UserAverageSessions } from '../services/models/UserAverageSessions'; // give JSDoc access to object structure
 
 /**
- * Component representing the dashboard header.
+ * Component representing the average session chart.
  * The data were extended before and after, to manage visual rendering.
  * @param {object} props
- * @param {object} props.userAverageSessions
+ * @param {UserAverageSessions} props.userAverageSessions
  * @returns {JSX.Element}
  */
-
 const AverageSessions = ({ userAverageSessions }) => {
+  /**
+   * Manage X axis ticks values
+   * @param {number} value
+   * @returns {string}
+   */
   const formatLabel = (value) => {
     switch (value) {
       case 1:
@@ -39,7 +44,11 @@ const AverageSessions = ({ userAverageSessions }) => {
     }
   };
 
-  // Function to create additional data for visual render
+  /**
+   * Function to create additional data for visual render
+   * @param {Array<object>} data
+   * @returns {Array<object>}
+   */
   const extendData = (data) => {
     // Add additional data at the beginning and the end
     const extendedData = [
@@ -52,7 +61,14 @@ const AverageSessions = ({ userAverageSessions }) => {
     return extendedData.sort((a, b) => a.day - b.day);
   };
 
-  //  custom tooltip
+  /**
+   * Custom tooltip component.
+   * Managed the overlay (dark background) depend of cursor position on the line
+   * @param {boolean} props.active
+   * @param {Array<object>} props.payload
+   * @param {object} props.coordinate
+   * @returns {JSX.Element}
+   */
   const AverageSessionsCustomTooltip = ({ active, payload, coordinate }) => {
     let rightOverlayWidth, xPosition, yPosition, xLabelPosition, yLabelPosition;
     const containerWidth = 305; // Width of the chart container => 258px * 118% (size of responsiveContainer)
@@ -61,8 +77,8 @@ const AverageSessions = ({ userAverageSessions }) => {
       xPosition = coordinate ? coordinate.x : 0;
       yPosition = coordinate ? coordinate.y : 0;
       rightOverlayWidth = containerWidth - xPosition; // Calculate width of the semi-transparent overlay
-      xLabelPosition = xPosition > 230 ? xPosition - 40 : xPosition + 5;
-      yLabelPosition = yPosition - 35;
+      xLabelPosition = xPosition > 230 ? xPosition - 40 : xPosition + 5; // manage horizontal tooltip position
+      yLabelPosition = yPosition - 35; // manage vertical tooltip position
     }
     return active && payload ? (
       <div className='average-sessions__custom-tooltip'>
@@ -91,6 +107,7 @@ const AverageSessions = ({ userAverageSessions }) => {
       <ResponsiveContainer width='118%' height='70%'>
         <LineChart data={extendData(userAverageSessions.sessions)}>
           <defs>
+            {/* line gradient + color */}
             <linearGradient
               id='colorLine'
               x1='309.906'
@@ -134,7 +151,6 @@ const AverageSessions = ({ userAverageSessions }) => {
             tickFormatter={formatLabel}
           />
           <YAxis hide domain={['dataMin-10', 'dataMax+10']} />
-          {/* infobulle */}
           <Tooltip content={<AverageSessionsCustomTooltip />} cursor={false} />
         </LineChart>
       </ResponsiveContainer>

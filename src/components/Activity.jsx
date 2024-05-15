@@ -10,24 +10,27 @@ import {
   Legend,
   Bar,
 } from 'recharts';
-
-// import ActivityCustomTooltip from './customChartElements/ActivityCustomTooltip';
-// import ActivityCustomLegend from './customChartElements/ActivityCustomLegend';
+// eslint-disable-next-line no-unused-vars
+import { UserActivity } from '../services/models/UserActivity'; // give JSDoc access to object structure
 
 /**
- * Component representing the dashboard header.
+ * Component representing the activity chart.
  * @param {object} props
- * @param {object} props.userActivity
+ * @param {UserActivity} props.userActivity
  * @returns {JSX.Element}
  */
 const Activity = ({ userActivity }) => {
-  // to manage display datas, we add index for XAxis
+  // Adding index for XAxis to manage display data.
   const dataWithIndex = userActivity.sessions.map((session, index) => ({
     ...session,
-    index: index + 1, //bagin with 1 instead of 0
+    index: index + 1, //beginning with 1 instead of 0
   }));
 
-  // custom legend
+  /**
+   * Custom legend component.
+   * @param {Array<object>} props.payload
+   * @returns {JSX.Element}
+   */
   const ActivityCustomLegend = ({ payload }) => {
     return (
       <ul className='activity__legend-container'>
@@ -48,15 +51,21 @@ const Activity = ({ userActivity }) => {
     );
   };
 
-  // custom tooltip
+  /**
+   * Custom tooltip component.
+   * @param {boolean} props.active
+   * @param {Array<object>} props.payload
+   * @returns {JSX.Element}
+   */
   const ActivityCustomTooltip = ({ active, payload }) => {
-    return active && payload ? (
-      <div className='activity__custom-tooltip'>
-        <p>{`${payload[0].value}`}kg</p>
-        <p>{`${payload[1].value}`}kCal</p>
-      </div>
-    ) : (
-      ''
+    return (
+      active &&
+      payload && (
+        <div className='activity__custom-tooltip'>
+          <p>{`${payload[0].value}`}kg</p>
+          <p>{`${payload[1].value}`}kCal</p>
+        </div>
+      )
     );
   };
 
@@ -80,8 +89,8 @@ const Activity = ({ userActivity }) => {
             tickMargin={14}
             axisLine={false}
             type='number'
-            domain={[1, 7]}
-            ticks={[1, 2, 3, 4, 5, 6, 7]}
+            domain={[1, 7]} // start at 1 and finish at 7
+            ticks={[1, 2, 3, 4, 5, 6, 7]} // for visual render
           />
           <YAxis
             yAxisId='left'
@@ -89,14 +98,14 @@ const Activity = ({ userActivity }) => {
             dataKey='calories'
             hide={true}
             tickCount={7}
-            domain={['dataMin - 40', 'dataMax + 40']}
+            domain={['dataMin - 40', 'dataMax + 40']} // for better rendering and display all data tu user
           />
           <YAxis
             yAxisId='right'
             dataKey='kilogram'
             orientation='right'
             type='number'
-            domain={['dataMin - 1', 'dataMax + 1']}
+            domain={['dataMin - 1', 'dataMax + 1']} // for better rendering and display all data tu user
             tickLine={false}
             axisLine={false}
             tickMargin={45}

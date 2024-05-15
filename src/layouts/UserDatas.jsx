@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
 import UserDatasCard from '../components/UserDatasCard';
+// eslint-disable-next-line no-unused-vars
+import { User } from '../services/models/User'; // give JSDoc access to object structure
 /**
- * Component representing the dashboard header.
+ * Layout containing user datas cards.
  * @param {object} props
- * @param {object} props.user
+ * @param {User} props.user
  * @returns {JSX.Element}
  */
-
 const UserDatas = ({ user }) => {
   return (
     <section className='user-datas'>

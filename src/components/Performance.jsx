@@ -8,21 +8,31 @@ import {
   Radar,
   PolarRadiusAxis,
 } from 'recharts';
-// import PerformanceCustomTick from './customChartElements/PerformanceCustomTick';
+// eslint-disable-next-line no-unused-vars
+import { UserPerformance } from '../services/models/UserPerformance'; // give JSDoc access to object structure
 
 /**
- * Component representing the dashboard header.
+ * Component representing the performance chart.
  * @param {object} props
- * @param {object} props.userPerformance
+ * @param {UserPerformance} props.userPerformance
  * @returns {JSX.Element}
  */
 const Performance = ({ userPerformance }) => {
-  // custom tick (distance from radar)
+  /**
+   * Custom tick component.
+   * Manages label spacing relative to chart
+   * @param {Array<object>} props.payload
+   * @param {number} props.x - X coordinate.
+   * @param {number} props.y - Y coordinate.
+   * @param {number} props.cx - Center X coordinate.
+   * @param {number} props.cy - Center Y coordinate.
+   * @returns {JSX.Element} - Returns JSX element.
+   */
   const PerformanceCustomTick = ({ payload, x, y, cx, cy }) => {
     return (
       <text
-        y={y + (y - cy) / 20}
-        x={x + (x - cx) / 4}
+        y={y + (y - cy) / 20} // calculate y position
+        x={x + (x - cx) / 4} // calculate x position
         textAnchor='middle'
         fill='#fff'
         className='performance__kind'

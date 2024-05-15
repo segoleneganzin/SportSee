@@ -1,6 +1,11 @@
-import Menu from './Menu';
+import HeaderNav from '../components/HeaderNav';
 import logo from '../assets/images/logo.png';
 
+/**
+ * Layout of the header.
+ * Contains the Menu component
+ * @returns {JSX.Element}
+ */
 const Header = () => {
   return (
     <header className='header'>
@@ -11,7 +16,7 @@ const Header = () => {
         width={178}
         height={61}
       />
-      <Menu />
+      <HeaderNav />
     </header>
   );
 };

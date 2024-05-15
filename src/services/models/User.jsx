@@ -1,19 +1,18 @@
 /**
- * Create an object
+ * Create and format an object User
  * @param {object} user
  * @returns {{
  *  userId: number,
- *  userInfos: { firstName: string, lastName: string, age: number },
+ *  firstName: string,
+ *  lastName: string,
+ *  age: number,
  *  todayScore: number,
- *  keyData: {
- *    calorieCount: number,
- *    proteinCount: number,
- *    carbohydrateCount: number,
- *    lipidCount: number
- *  }
+ *  calorieCount: number,
+ *  proteinCount: number,
+ *  carbohydrateCount: number,
+ *  lipidCount: number
  * }}
  */
-
 export const User = (user) => {
   const {
     id,

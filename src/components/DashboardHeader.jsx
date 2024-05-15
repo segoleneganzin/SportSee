@@ -1,11 +1,13 @@
 import PropTypes from 'prop-types';
+// eslint-disable-next-line no-unused-vars
+import { User } from '../services/models/User'; // give JSDoc access to object structure
+
 /**
- * Component representing the dashboard header.
+ * Component of the dashboard header.
  * @param {object} props
- * @param {object} props.user
+ * @param {User} props.user
  * @returns {JSX.Element}
  */
-
 const DashboardHeader = ({ user }) => {
   return (
     <section className='dashboard-header'>

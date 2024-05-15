@@ -1,7 +1,7 @@
 /**
- * Create an object
+ * Create an object UserAverageSessions
  * @param {object} userAverageSessions
- * @returns {{ userId: string, sessions: { day: number, sessionLength: number }[] }}
+ * @returns {{ userId: number, sessions: { day: number, sessionLength: number }[] }}
  * */
 export const UserAverageSessions = (userAverageSessions) => {
   const { userId, sessions } = userAverageSessions;

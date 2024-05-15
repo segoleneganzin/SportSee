@@ -25,7 +25,7 @@ const Router = () => {
           />
         }
       />
-      {/* all routes undefined */}
+      {/* all routes undefined above */}
       <Route
         path='*'
         element={

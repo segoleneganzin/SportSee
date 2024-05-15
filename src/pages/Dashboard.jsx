@@ -6,7 +6,7 @@ import {
   getUserAverageSessionsById,
   getUserPerformanceById,
 } from '../services/api.jsx';
-import DashboardHeader from '../layouts/DashboardHeader';
+import DashboardHeader from '../components/DashboardHeader';
 import Activity from '../components/Activity.jsx';
 import AverageSessions from '../components/AverageSessions.jsx';
 import Performance from '../components/Performance.jsx';
@@ -15,6 +15,12 @@ import UserDatas from '../layouts/UserDatas.jsx';
 import { useUser } from '../utils/hooks/useUser.jsx';
 import Loader from '../components/Loader.jsx';
 
+/**
+ * Dashboard page (Accueil)
+ * On this page, user can view all his charts.
+ * All data are retrives with getters api functions (read)
+ * @returns {JSX.Element}
+ */
 const Dashboard = () => {
   const [user, setUser] = useState({});
   const [userActivity, setUserActivity] = useState({});
@@ -23,37 +29,37 @@ const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
   const { userId } = useParams(); // get id from url - result is string, we must cast into Number
+  const userIdNumber = Number(userId);
   const navigate = useNavigate(); // manage redirection in case of unknown userId
-  const { currentUserId } = useUser();
+  const { currentUserId } = useUser(); // get the current userId from context, allows us to compare with url id parameter to manage security of datas
 
   useEffect(() => {
     const fetchDatas = async () => {
       try {
         setError(false);
-        const userById = await getUserById(userId);
-        const userActivityById = await getUserActivityById(userId);
+        const userById = await getUserById(userIdNumber);
+        const userActivityById = await getUserActivityById(userIdNumber);
         const userAverageSessionsById = await getUserAverageSessionsById(
-          userId
+          userIdNumber
         );
-        const userPerformanceById = await getUserPerformanceById(userId);
+        const userPerformanceById = await getUserPerformanceById(userIdNumber);
         setUser(userById);
         setUserActivity(userActivityById);
         setUserAverageSessions(userAverageSessionsById);
         setUserPerformance(userPerformanceById);
-        setIsLoading(false);
+        setIsLoading(false); // allows to replace loader by datas
       } catch (error) {
         setIsLoading(false);
-        setError(true);
+        setError(true); // allows to show error message
       }
     };
     // if url userId is different of current userId, then navigate to currentUser dashboard
-    if (userId != currentUserId) {
-      console.log(userId, currentUserId);
+    if (userIdNumber !== currentUserId) {
       navigate(`/accueil/${currentUserId}`);
     } else {
       fetchDatas();
     }
-  }, [userId, currentUserId, navigate]);
+  }, [userIdNumber, currentUserId, navigate]);
 
   return isLoading ? (
     <Loader />

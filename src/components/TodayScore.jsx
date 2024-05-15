@@ -1,17 +1,17 @@
 import PropTypes from 'prop-types';
 import { ResponsiveContainer, RadialBarChart, RadialBar } from 'recharts';
+// eslint-disable-next-line no-unused-vars
+import { User } from '../services/models/User'; // give JSDoc access to object structure
 
 /**
  * Component representing the today score chart.
  * @param {object} props
- * @param {object} props.user
+ * @param {User} props.user
  * @returns {JSX.Element}
  */
-
 const TodayScore = ({ user }) => {
-  const { todayScore } = user;
-  const todayScorePercentage = todayScore * 100;
-
+  const { todayScore } = user; // for better understanding
+  const todayScorePercentage = todayScore * 100; // transform data into percentage
   return (
     <section className='container today-score'>
       <h2 className='today-score__title container__title'>Score</h2>
@@ -30,8 +30,8 @@ const TodayScore = ({ user }) => {
           innerRadius='70%'
           outerRadius='80%'
           data={[{ todayScore }]}
-          startAngle={80}
-          endAngle={80 + todayScore * 360}
+          startAngle={80} // start of chart bar
+          endAngle={80 + todayScore * 360} // end of chart bar
           margin={{ top: 30 }}
         >
           <RadialBar

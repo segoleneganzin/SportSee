@@ -1,5 +1,9 @@
 import { useParams } from 'react-router-dom';
 
+/**
+ * Community page
+ * @returns {JSX.Element}
+ */
 const Community = () => {
   const { userId } = useParams(); // get id from url - result is string
 

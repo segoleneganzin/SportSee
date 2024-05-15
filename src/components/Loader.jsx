@@ -1,3 +1,7 @@
+/**
+ * Loader component
+ * @returns {JSX.Element}
+ */
 const Loader = () => {
   return (
     <div className='loader'>

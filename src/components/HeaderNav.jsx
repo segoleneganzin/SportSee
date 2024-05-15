@@ -1,8 +1,14 @@
 import { useState } from 'react';
 import { useUser } from '../utils/hooks/useUser';
 
-const Menu = () => {
+/**
+ * Component of the menu, located in the header.
+ * @returns {JSX.Element}
+ */
+const HeaderNav = () => {
   const { currentUserId } = useUser();
+
+  // manage responsive menu for device under 1024px
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
   const openResponsiveMenu = () => {
     setHamburgerOpen(!hamburgerOpen);
@@ -10,6 +16,7 @@ const Menu = () => {
 
   return (
     <>
+      {/* nav links content */}
       <nav className={hamburgerOpen ? 'menu--responsive' : 'menu'}>
         <a href={`/accueil/${currentUserId}`} className='menu__link'>
           Accueil
@@ -24,6 +31,7 @@ const Menu = () => {
           Communauté
         </a>
       </nav>
+      {/* hamburger menu display on device under 1024px */}
       <a
         href='#'
         className='icon'
@@ -43,4 +51,4 @@ const Menu = () => {
   );
 };
 
-export default Menu;
+export default HeaderNav;
