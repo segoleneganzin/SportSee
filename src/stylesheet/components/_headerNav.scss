@@ -1,0 +1,50 @@
+.header-nav {
+  display: none;
+  gap: 100px;
+  position: relative;
+  &--responsive {
+    animation: open-hamburger 200ms forwards;
+    background-color: $black;
+    border-radius: 0 0 0 50px;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    padding: 20px;
+    position: absolute;
+    right: 0;
+    top: $header-height;
+    transform-origin: top;
+    width: fit-content;
+    z-index: 99;
+    .header-nav__link {
+      padding: 15px;
+    }
+  }
+  &__burger-icon {
+    @include flex-col;
+    gap: 6px;
+    span {
+      background-color: $white;
+      height: 5px;
+      width: 35px;
+    }
+  }
+  @include min-media-breakpoint($breakpoint-laptop) {
+    display: flex;
+    &__burger-icon-link {
+      display: none;
+    }
+  }
+  @include min-media-breakpoint($breakpoint-laptopXL) {
+    gap: 200px;
+  }
+}
+
+@keyframes open-hamburger {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}

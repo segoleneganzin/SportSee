@@ -1,37 +1,38 @@
-// Api call + creating object
-// manage mocked datas or api
-
 import { fetchData } from './fetchData';
 import { User } from './models/User';
 import { UserActivity } from './models/UserActivity';
 import { UserAverageSessions } from './models/UserAverageSessions';
 import { UserPerformance } from './models/UserPerformance';
 
+// manage mocked datas or api
 const mockedDatas = true;
 
 /**
  * Manages data sourcing route
  * Mocked data files (json) must take the name of the dataType !!
+ * domain and uri depends of mockedDatas status
+ * resolve fetchData promise
  * @param {number} userId
  * @param {string} dataType
- * @returns {object}
+ *  @returns {Promise<any>}
  */
-const getDatasById = async (userId, dataType) => {
-  const domain = mockedDatas
-    ? 'http://localhost:5173'
-    : 'http://localhost:3000';
-  let uri = mockedDatas
-    ? `/mocks/${dataType}.json`
-    : `/user/${userId}/${dataType}`;
-  if (dataType === 'user' && !mockedDatas) {
-    uri = `/user/${userId}`;
+const getDatasById = (userId, dataType) => {
+  const port = mockedDatas ? '5173' : '3000';
+  let uri;
+  if (mockedDatas) {
+    uri = `/mocks/${dataType}.json`;
+  } else {
+    uri =
+      dataType === 'user' ? `/user/${userId}` : `/user/${userId}/${dataType}`;
   }
-  return await fetchData(domain + uri, userId, mockedDatas);
+  return fetchData('http://localhost:' + port + uri, userId, mockedDatas);
 };
 
+// ******* READ functions
+
 /**
- * Get the user depends of his id
- * Format datas
+ * Get the user according to his id
+ * Format datas by creating personnalized object
  * @param {number} userId - The ID of the user to retrieve.
  * @returns {Promise<User>} A Promise resolving to the user object.
  */
@@ -40,7 +41,7 @@ export const getUserById = async (userId) => {
 };
 
 /**
- * Get the user activity depends of user's id
+ * Get the user activity according to user's id
  * Format datas
  * @param {number} userId - The ID of the user to retrieve.
  * @returns {Promise<UserActivity>} A Promise resolving to the userActivity object.
@@ -50,7 +51,7 @@ export const getUserActivityById = async (userId) => {
 };
 
 /**
- * Get the user average sessions depends of user's id
+ * Get the user average sessions according to user's id
  * Format datas
  * @param {number} userId - The ID of the user to retrieve.
  * @returns {Promise<UserAverageSessions>} A Promise resolving to the userAverageSessions object.
@@ -60,7 +61,7 @@ export const getUserAverageSessionsById = async (userId) => {
 };
 
 /**
- * Get the user performance depends of user's id
+ * Get the user performance according to user's id
  * Format datas
  * @param {number} userId - The ID of the user to retrieve.
  * @returns {Promise<UserPerformance>} A Promise resolving to the userPerformance object.

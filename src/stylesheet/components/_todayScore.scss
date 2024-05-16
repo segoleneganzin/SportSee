@@ -1,0 +1,25 @@
+.today-score {
+  background-color: $light-grey;
+  &__legend {
+    @include flex-col;
+    align-items: center;
+    background-color: $white;
+    border-radius: $rounded;
+    height: 58%;
+    justify-content: center;
+    padding-top: 8px;
+    width: 58%;
+    &-container {
+      @include fullHeightWidth;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      left: 0;
+      position: absolute;
+      top: 0;
+    }
+  }
+  &__percentage {
+    padding-bottom: 8px;
+  }
+}

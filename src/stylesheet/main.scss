@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 // 1. Configuration and helpers
-@import 'abstracts/variables', 'abstracts/functions', 'abstracts/mixins';
+@import 'abstracts/variables', 'abstracts/mixins';
 
 // 2. Vendors
 @import 'vendors/normalize';
@@ -10,12 +10,13 @@
 @import 'base/base', 'base/typography', 'base/helpers';
 
 // 4. Layout-related sections
-@import 'layout/header', 'layout/footer';
+@import 'layout/header', 'layout/verticalSection', 'layout/dashboardHeader',
+  'layout/userDatas';
 
 // 5. Components
-@import 'components/button';
+@import 'components/averageSessions', 'components/activity',
+  'components/performance', 'components/todayScore', 'components/userDatasCard',
+  'components/loader', 'components/headerNav', 'components/verticalNav';
 
 // 6. Page-specific styles
-@import 'pages/home';
-
-// 7. Themes
+@import 'pages/dashboard', 'pages/authentication';

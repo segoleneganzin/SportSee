@@ -6,10 +6,6 @@
 /// @type Color
 $text-color: #000000;
 
-/// link color
-/// @type Color
-$link-color: #000000;
-
 /// Main brand color
 /// @type Color
 $brand-color: #ff0101;
@@ -24,7 +20,11 @@ $light-grey: #fbfbfb;
 
 /// black
 /// @type Color
-$black: #000;
+$black: #020203;
+
+/// white
+/// @type Color
+$white: #ffffff;
 
 /// *********************** BREAKPOINTS
 $breakpoint-mobileXS: 360px;
@@ -32,9 +32,14 @@ $breakpoint-mobile: 425px;
 $breakpoint-tablet: 768px;
 $breakpoint-laptop: 1024px;
 $breakpoint-laptopXL: 1400px;
-$breakpoint-desktopXL: 1850px;
+$breakpoint-desktop: 1440px;
+$breakpoint-desktopXL: 1580px;
 
 /// *********************** RADIUS
 $smallRadius: 5px;
-$mediumRadius: 10px;
 $largeRadius: 25px;
+$rounded: 100%;
+
+/// *********************** OTHERS
+$header-height: 91px;
+$vertical-nav-width: 117px;

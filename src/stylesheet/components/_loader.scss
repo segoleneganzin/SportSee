@@ -1,0 +1,49 @@
+/***************************** LOADER *****************************/
+.loader {
+  align-items: center;
+  display: flex;
+  gap: 40px;
+  height: 50vh;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  z-index: 99;
+  &__element {
+    animation: loader 2s infinite ease-in-out;
+    animation-fill-mode: both;
+    background-color: $brand-color;
+    border-radius: $rounded;
+    height: 50px;
+    opacity: 1;
+    width: 50px;
+    z-index: 99;
+    @include media-breakpoint($breakpoint-mobile) {
+      height: 20px;
+      width: 20px;
+    }
+    &--1 {
+      animation-delay: 0.2s;
+    }
+    &--2 {
+      animation-delay: 0.4s;
+    }
+    &--3 {
+      animation-delay: 0.6s;
+    }
+  }
+}
+@keyframes loader {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+}

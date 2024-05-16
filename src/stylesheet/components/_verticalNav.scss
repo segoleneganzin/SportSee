@@ -1,0 +1,23 @@
+.vertical-nav {
+  display: flex;
+  gap: 20px;
+  &__link {
+    height: 50px;
+    img {
+      height: 50px;
+    }
+  }
+
+  @include min-media-breakpoint($breakpoint-tablet) {
+    flex-direction: column;
+  }
+
+  @include min-media-breakpoint($breakpoint-laptopXL) {
+    &__link {
+      height: 64px;
+      img {
+        height: 64px;
+      }
+    }
+  }
+}

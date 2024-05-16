@@ -1,9 +1,17 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
-import TestMock from './pages/TestMock.jsx';
+import { BrowserRouter } from 'react-router-dom';
+import Router from './Router.jsx';
+import { UserProvider } from './context/UserContext';
+
+import './stylesheet/main.scss';
+import PageLayout from './layouts/PageLayout.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <TestMock />
-  </React.StrictMode>
+  <BrowserRouter>
+    <UserProvider>
+      <PageLayout>
+        <Router />
+      </PageLayout>
+    </UserProvider>
+  </BrowserRouter>
 );

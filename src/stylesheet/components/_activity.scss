@@ -1,0 +1,69 @@
+.activity {
+  background-color: $light-grey;
+  border-radius: $smallRadius;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.02);
+  display: flex;
+  height: 300px;
+  position: relative;
+  width: 100%;
+  &__custom-tooltip {
+    @include flex-col;
+    background-color: $brand-color;
+    gap: 30px;
+    padding: 10px;
+    position: relative;
+    text-align: center;
+    top: -40px;
+  }
+  &__legend {
+    align-items: center;
+    display: flex;
+    gap: 10px;
+    &-container {
+      display: flex;
+      gap: 52px;
+      position: absolute;
+      right: 10px;
+      top: 10%;
+      width: max-content;
+    }
+    &-color {
+      border-radius: $rounded;
+      display: inline-block;
+      height: 8px;
+      margin-right: 5px;
+      width: 8px;
+    }
+  }
+  .recharts-responsive-container {
+    bottom: 0;
+    padding: 22px 0px 20px;
+    position: absolute;
+  }
+  @include min-media-breakpoint($breakpoint-tablet) {
+    height: 320px;
+    &__legend {
+      &-container {
+        right: 0px;
+        top: -60%;
+      }
+    }
+  }
+  @include min-media-breakpoint($breakpoint-laptop) {
+    height: 240px;
+    &__legend {
+      &-container {
+        right: 26px;
+        top: -35%;
+      }
+    }
+  }
+  @include min-media-breakpoint($breakpoint-laptopXL) {
+    height: 320px;
+    &__legend {
+      &-container {
+        top: -50%;
+      }
+    }
+  }
+}

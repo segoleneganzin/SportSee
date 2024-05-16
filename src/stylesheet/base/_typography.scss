@@ -1,25 +1,113 @@
-/***************************** IMPORTS *****************************/
-/* google font Anton + Manrope*/
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500;700;400&display=swap');
 /***************************** TYPOGRAPHY *****************************/
 /****************************************************** COLORS */
-body {
+body,
+.today-score__percentage {
   color: $text-color;
 }
-/****************************************************** FONTS */
-
-body {
-  font-family: 'Roboto', sans-serif;
+.header-nav__link,
+.vertical-section__copyright,
+.average-sessions__title,
+.btn,
+.authentication,
+.activity__custom-tooltip {
+  color: $white;
+}
+.dashboard-header__firstName {
+  color: $brand-color;
+}
+.user-datas-card__category,
+.today-score__legend,
+.activity__legend {
+  color: $grey;
 }
 
+/****************************************************** FONTS */
+
+body,
+.btn {
+  font-family: 'Roboto', sans-serif;
+}
+/***************************************** line height */
+body {
+  line-height: 1.5rem;
+}
 /***************************************** font weight */
 body {
   font-weight: 500;
 }
-.bold {
+.bold,
+.user-datas-card__value,
+.today-score__percentage,
+.btn {
   font-weight: 700;
 }
+.light-font,
+.authentication .subtitle {
+  font-weight: 400;
+}
 /***************************************** font size */
-/***************************************** line height */
-/***************************************** text transform */
-/***************************************** text shadow */
+.today-score__legend {
+  font-size: 0.7rem;
+}
+.today-score__percentage {
+  font-size: 1.2rem;
+}
+.header-nav__link {
+  font-size: 1rem;
+}
+.title1 {
+  font-size: 2rem;
+}
+.subtitle {
+  font-size: 0.8rem;
+}
+.container__title {
+  font-size: 0.8rem;
+}
+.user-datas-card__value {
+  font-size: 1rem;
+}
+.activity__legend,
+.user-datas-card__category {
+  font-size: 0.7rem;
+}
+.performance__kind,
+.vertical-section__copyright {
+  font-size: 0.6rem;
+}
+.average-sessions__custom-tooltip,
+.activity__custom-tooltip {
+  font-size: 0.7rem;
+}
+
+@include min-media-breakpoint($breakpoint-laptopXL) {
+  .today-score__legend {
+    font-size: 1rem;
+  }
+  .today-score__percentage {
+    font-size: 1.625rem;
+  }
+  .header-nav__link {
+    font-size: 1.5rem;
+  }
+  .title1 {
+    font-size: 3rem;
+  }
+  .subtitle {
+    font-size: 1.125rem;
+  }
+  .container__title {
+    font-size: 0.938rem;
+  }
+  .user-datas-card__value {
+    font-size: 1.25rem;
+  }
+  .activity__legend,
+  .user-datas-card__category {
+    font-size: 0.875rem;
+  }
+  .performance__kind,
+  .vertical-section__copyright {
+    font-size: 0.75rem;
+  }
+}

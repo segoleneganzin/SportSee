@@ -1,0 +1,83 @@
+.dashboard {
+  &__content {
+    @include flex-col;
+    align-items: center;
+    gap: 30px;
+  }
+
+  @include min-media-breakpoint($breakpoint-tablet) {
+    &__content {
+      column-gap: 20px;
+      display: grid;
+      grid-template-rows: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
+      place-items: center;
+      row-gap: 0px;
+      .activity {
+        grid-column: span 2;
+      }
+      .user-datas {
+        grid-column: span 2;
+        grid-row: span 1;
+      }
+    }
+  }
+
+  @include min-media-breakpoint($breakpoint-laptop) {
+    &__content {
+      grid-template-rows: 240px 80px 250px;
+      grid-template-columns: repeat(3, 1fr);
+      row-gap: 5px;
+      .activity {
+        grid-column: span 3;
+      }
+      .user-datas {
+        grid-column: span 3;
+        grid-row: span 1;
+      }
+    }
+  }
+
+  @include min-media-breakpoint($breakpoint-laptopXL) {
+    &__content {
+      column-gap: 30px;
+      grid-template-columns: repeat(4, 258px);
+      grid-template-rows: 320px 263px;
+      row-gap: 28px;
+      .activity {
+        grid-column: span 3;
+      }
+      .user-datas {
+        grid-column: span 1;
+        grid-row: span 2;
+      }
+    }
+  }
+
+  @include min-media-breakpoint($breakpoint-desktopXL) {
+    &__content {
+      column-gap: 30px;
+      grid-template-columns: repeat(5, 258px);
+      grid-template-rows: 320px 263px;
+      row-gap: 5px;
+      .activity {
+        grid-column: span 3;
+        order: 0;
+      }
+      .average-sessions {
+        order: 1;
+      }
+      .performance {
+        order: 2;
+      }
+      .user-datas {
+        grid-column: span 4;
+        grid-row: span 1;
+        order: 3;
+      }
+      .today-score {
+        order: 4;
+      }
+    }
+  }
+}
