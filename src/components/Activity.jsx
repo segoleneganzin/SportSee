@@ -20,11 +20,14 @@ import { UserActivity } from '../services/models/UserActivity'; // give JSDoc ac
  * @returns {JSX.Element}
  */
 const Activity = ({ userActivity }) => {
-  // Adding index for XAxis to manage display data.
-  const dataWithIndex = userActivity.sessions.map((session, index) => ({
-    ...session,
-    index: index + 1, //beginning with 1 instead of 0
-  }));
+  // Adding day date for XAxis to manage display data.
+  // dayDate is only the month day date :  2020-07-01 => 1,
+  const dataWithDayDate = userActivity.sessions.map((session) => {
+    return {
+      ...session,
+      dayDate: session.day.getDate(),
+    };
+  });
 
   /**
    * Custom legend component.
@@ -76,21 +79,18 @@ const Activity = ({ userActivity }) => {
         <BarChart
           width={730}
           height={200}
-          data={dataWithIndex}
+          data={dataWithDayDate}
           barGap='10'
           barSize={8}
           margin={{ left: 50, right: 40 }}
         >
           <CartesianGrid strokeDasharray='3' vertical={false} />
           <XAxis
-            dataKey='index'
+            dataKey='dayDate'
             tickLine={false}
             tick={{ fill: '#9B9EAC', fontWeight: 500, fontSize: 14 }}
             tickMargin={14}
             axisLine={false}
-            type='number'
-            domain={[1, 7]} // start at 1 and finish at 7
-            ticks={[1, 2, 3, 4, 5, 6, 7]} // for visual render
           />
           <YAxis
             yAxisId='left'
@@ -150,7 +150,7 @@ Activity.propTypes = {
     userId: PropTypes.number,
     sessions: PropTypes.arrayOf(
       PropTypes.shape({
-        day: PropTypes.string,
+        day: PropTypes.instanceOf(Date),
         kilogram: PropTypes.number,
         calorie: PropTypes.number,
       }).isRequired

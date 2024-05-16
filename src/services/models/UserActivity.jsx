@@ -5,5 +5,9 @@
  * */
 export const UserActivity = (userActivity) => {
   const { userId, sessions } = userActivity;
-  return { userId, sessions };
+  const sessionsWithDate = sessions.map((session) => ({
+    ...session,
+    day: new Date(session.day), // convert date : string to Date
+  }));
+  return { userId, sessions: sessionsWithDate };
 };
