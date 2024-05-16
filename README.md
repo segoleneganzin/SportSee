@@ -28,13 +28,13 @@ Le projet utilise NodeJS et `pnpm`<br>
 
 ### 🚀 Lancement du projet
 
+➡ Lancer l'application : `pnpm run dev`<br>
+
 ➡ Lancer l'API : <br>
 [Repository de l'API](https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard)<br>
 Suivre les instructions du README lié à l'API.<br>
 
-➡ Lancer l'application : `pnpm run dev`<br>
-
-Par défaut, le programme utilise des données simulées.<br>
+Par défaut, le programme utilise des données simulées, cela permet de faire fonctionner le site même si l'API n'est pas démarrée.<br>
 Pour modifier cela, il suffit d'aller dans le fichier services/api.jsx et de modifier la ligne 8 : <br>
 ![Modifier la source des données](src/assets/images/mock-api.png)
 
@@ -83,13 +83,13 @@ The project uses NodeJS and `pnpm`<br>
 
 ### 🚀 Project Launch
 
-Launch the API: <br>
+➡ Launch the application: `pnpm run dev`<br>
+
+➡ Launch the API: <br>
 [API repository](https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard)<br>
 Follow the instructions in the API README.<br>
 
-➡ Launch the application: `pnpm run dev`<br>
-
-By default, the program uses simulated data.<br>
+By default, the program uses simulated data, this allows the site to function even if the API is not started.<br>
 To change this, simply go to the services/api.jsx file and modify line 8: <br>
 ![Change data source](src/assets/images/mock-api.png)
 
