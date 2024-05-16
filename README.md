@@ -2,7 +2,7 @@
 
 ## Développez un tableau de bord d'analytics avec React
 
-![Visuel du site](src/assets/screenshot.png)
+![Visuel du site](src/assets/images/screenshot.png)
 
 ### 📚 Présentation
 
@@ -36,7 +36,7 @@ Suivre les instructions du README lié à l'API.<br>
 
 Par défaut, le programme utilise des données simulées.<br>
 Pour modifier cela, il suffit d'aller dans le fichier services/api.jsx et de modifier la ligne 8 : <br>
-![Visuel du site](src/assets/mock-api.png)
+![Visuel du site](src/assets/images/mock-api.png)
 
 ### ⚙ Contraintes techniques
 
