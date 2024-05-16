@@ -59,7 +59,7 @@ Pour modifier cela, il suffit d'aller dans le fichier services/api.jsx et de mod
 
 ![Website screenshot](src/assets/images/screenshot.png)
 
-### 📚 Présentation
+### 📚 Presentation
 
 This project aims to develop an analytics dashboard for sports coaching. <br>
 It aims to integrate charts and diagrams using React and retrieve data via an API. <br>
@@ -75,7 +75,7 @@ Data can be mocked or come from an API, and it is formatted to allow filling the
 
 ### 🔨 Project Installation
 
-The project uses NodeJS and pnpm<br>
+The project uses NodeJS and `pnpm`<br>
 
 ➡ Download the code folder and unzip it<br>
 ➡ Open the folder in VSCode (or any other IDE)<br>
@@ -87,7 +87,7 @@ Launch the API: <br>
 [API repository](https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard)<br>
 Follow the instructions in the API README.<br>
 
-➡ Launch the application: pnpm run dev<br>
+➡ Launch the application: `pnpm run dev`<br>
 
 By default, the program uses simulated data.<br>
 To change this, simply go to the services/api.jsx file and modify line 8: <br>
