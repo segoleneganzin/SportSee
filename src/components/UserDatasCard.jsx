@@ -30,12 +30,25 @@ const UserDatasCard = ({ name, value }) => {
         return null;
     }
   };
+
+  /**
+   * Format a numerical value to a string with no fractional digits and using en-US locale.
+   * e.g. : 1930 => 1,930
+   * @param {number} value - The numerical value to format.
+   * @returns {string} The formatted value as a string with no fractional digits.
+   */
+  const formatValue = (value) => {
+    return value.toLocaleString('en-US', {
+      minimumFractionDigits: 0,
+    });
+  };
+
   return (
     <div className='user-datas-card'>
       <img src={dataIcon(name)} alt='' />
       <p>
         <span className='user-datas-card__value'>
-          {value + (name === 'Calories' ? 'kCal' : 'g')}
+          {formatValue(value) + (name === 'Calories' ? 'kCal' : 'g')}
         </span>
         <br />
         <span className='user-datas-card__category'>{name}</span>

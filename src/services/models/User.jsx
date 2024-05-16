@@ -26,7 +26,7 @@ export const User = (user) => {
     firstName,
     lastName,
     age,
-    todayScore: todayScore || score, // some users don't have the same name, so we format to standardize
+    todayScore: todayScore || score,
     calorieCount,
     proteinCount,
     carbohydrateCount,

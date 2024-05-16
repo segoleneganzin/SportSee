@@ -136,7 +136,7 @@ const Activity = ({ userActivity }) => {
           <Bar
             yAxisId='left'
             dataKey='calories'
-            name='Calories brulées (kCal)'
+            name='Calories brûlées (kCal)'
             fill='#E60000'
             radius={[20, 20, 0, 0]}
           />
