@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import {
   getUserById,
   getUserActivityById,
@@ -30,13 +30,16 @@ const Dashboard = () => {
   const [error, setError] = useState(false);
   const { userId } = useParams(); // get id from url - result is string, we must cast into Number
   const userIdNumber = Number(userId);
-  const navigate = useNavigate(); // manage redirection in case of unknown userId
   const { currentUserId } = useUser(); // get the current userId from context, allows us to compare with url id parameter to manage security of datas
 
   useEffect(() => {
     const fetchDatas = async () => {
       try {
         setError(false);
+        // if user manually change url id by another id
+        if (userIdNumber !== currentUserId) {
+          throw new Error();
+        }
         const userById = await getUserById(userIdNumber);
         const userActivityById = await getUserActivityById(userIdNumber);
         const userAverageSessionsById = await getUserAverageSessionsById(
@@ -53,13 +56,9 @@ const Dashboard = () => {
         setError(true); // allows to show error message
       }
     };
-    // if url userId is different of current userId, then navigate to currentUser dashboard
-    if (userIdNumber !== currentUserId) {
-      navigate(`/accueil/${currentUserId}`);
-    } else {
-      fetchDatas();
-    }
-  }, [userIdNumber, currentUserId, navigate]);
+
+    fetchDatas();
+  }, [userIdNumber, currentUserId]);
 
   return isLoading ? (
     <Loader />

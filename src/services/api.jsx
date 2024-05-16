@@ -4,8 +4,6 @@ import { UserActivity } from './models/UserActivity';
 import { UserAverageSessions } from './models/UserAverageSessions';
 import { UserPerformance } from './models/UserPerformance';
 
-// Api call + creating object
-
 // manage mocked datas or api
 const mockedDatas = true;
 
@@ -13,20 +11,21 @@ const mockedDatas = true;
  * Manages data sourcing route
  * Mocked data files (json) must take the name of the dataType !!
  * domain and uri depends of mockedDatas status
+ * resolve fetchData promise
  * @param {number} userId
  * @param {string} dataType
- * @returns {object}
+ *  @returns {Promise<any>}
  */
-const getDatasById = async (userId, dataType) => {
+const getDatasById = (userId, dataType) => {
   const port = mockedDatas ? '5173' : '3000';
   let uri;
   if (mockedDatas) {
-    uri = `/mocks/${dataType}.json`; // mockedDatas uri
+    uri = `/mocks/${dataType}.json`;
   } else {
     uri =
-      dataType === 'user' ? `/user/${userId}` : `/user/${userId}/${dataType}`; // api uri
+      dataType === 'user' ? `/user/${userId}` : `/user/${userId}/${dataType}`;
   }
-  return await fetchData('http://localhost:' + port + uri, userId, mockedDatas);
+  return fetchData('http://localhost:' + port + uri, userId, mockedDatas);
 };
 
 // ******* READ functions
