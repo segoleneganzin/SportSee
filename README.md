@@ -28,7 +28,7 @@ Le projet utilise NodeJS et `pnpm`<br>
 
 ### 🚀 Lancement du projet
 
-➡ Lancer l'API :
+➡ Lancer l'API : <br>
 [Repository de l'API](https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard)<br>
 Suivre les instructions du README lié à l'API.<br>
 
