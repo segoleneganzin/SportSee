@@ -12,19 +12,6 @@ html {
 }
 
 /**
- * Basic styles for main
- */
-main {
-  @include flex-col;
-  padding-bottom: 150px;
-  @include min-media-breakpoint($breakpoint-tablet) {
-    flex-direction: row;
-    min-height: 88.3vh;
-    padding-bottom: 0px;
-  }
-}
-
-/**
  * Basic styles for links
  */
 a {
