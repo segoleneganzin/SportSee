@@ -30,10 +30,8 @@ const PageLayout = ({ children }) => {
   return (
     <>
       {isAuth && <Header />}
-      <main>
-        {isAuth && <VerticalSection />}
-        {children}
-      </main>
+      {isAuth && <VerticalSection />}
+      <main className='page-content'>{children}</main>
     </>
   );
 };

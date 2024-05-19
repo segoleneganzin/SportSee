@@ -14,6 +14,7 @@ import TodayScore from '../components/TodayScore.jsx';
 import UserDatas from '../layouts/UserDatas.jsx';
 import { useUser } from '../utils/hooks/useUser.jsx';
 import Loader from '../components/Loader.jsx';
+import ErrorMessage from '../components/ErrorMessage.jsx';
 
 /**
  * Dashboard page (Accueil)
@@ -35,7 +36,6 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchDatas = async () => {
       try {
-        setError(false);
         // if user manually change url id by another id
         if (userIdNumber !== currentUserId) {
           throw new Error();
@@ -50,11 +50,10 @@ const Dashboard = () => {
         setUserActivity(userActivityById);
         setUserAverageSessions(userAverageSessionsById);
         setUserPerformance(userPerformanceById);
-        setIsLoading(false); // allows to replace loader by datas
       } catch (error) {
-        setIsLoading(false);
         setError(true); // allows to show error message
       }
+      setIsLoading(false);
     };
 
     fetchDatas();
@@ -63,14 +62,9 @@ const Dashboard = () => {
   return isLoading ? (
     <Loader />
   ) : error ? (
-    <div className='dashboard page-content'>
-      <h1 className='title1'>Oups !</h1>
-      <p className='subtitle'>
-        Une erreur s&apos;est produite... <br />
-      </p>
-    </div>
+    <ErrorMessage />
   ) : (
-    <div className='dashboard page-content'>
+    <>
       <DashboardHeader user={user} />
       <div className='dashboard__content'>
         <Activity userActivity={userActivity} />
@@ -79,7 +73,7 @@ const Dashboard = () => {
         <Performance userPerformance={userPerformance} />
         <TodayScore user={user} />
       </div>
-    </div>
+    </>
   );
 };
 

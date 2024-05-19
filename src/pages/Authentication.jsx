@@ -25,7 +25,7 @@ const Authentication = () => {
   }, [isAuth, navigate, currentUserId]);
 
   return (
-    <div className='authentication page-content'>
+    <section className='authentication page-content'>
       <img
         src={logo}
         alt='logo'
@@ -46,7 +46,7 @@ const Authentication = () => {
       <button onClick={() => connection(18)} className='btn'>
         Connexion avec l&apos;utilisateur 18
       </button>
-    </div>
+    </section>
   );
 };
 
