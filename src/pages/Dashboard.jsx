@@ -29,10 +29,19 @@ const Dashboard = () => {
   const [userPerformance, setUserPerformance] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(
+    "Une erreur s'est produite ..."
+  );
   const { userId } = useParams(); // get id from url - result is string, we must cast into Number
   const userIdNumber = Number(userId);
   const { currentUserId } = useUser(); // get the current userId from context, allows us to compare with url id parameter to manage security of datas
 
+  /**
+   * @param {object} userById
+   * @param {object} userActivityById
+   * @param {object} userAverageSessionsById
+   * @param {object} userPerformanceById
+   */
   const updateUserStates = (
     userById,
     userActivityById,
@@ -58,7 +67,7 @@ const Dashboard = () => {
           userAverageSessionsById,
           userPerformanceById,
         ] = await Promise.all([
-          // resolved when all promises are resolved
+          // resolved when all promises are resolved - runs several asynchronous tasks in parallel
           getUserById(userIdNumber),
           getUserActivityById(userIdNumber),
           getUserAverageSessionsById(userIdNumber),
@@ -71,6 +80,9 @@ const Dashboard = () => {
           userPerformanceById
         );
       } catch (error) {
+        if (error.message === 'Failed to fetch') {
+          setErrorMessage('Le serveur est indisponible ...');
+        }
         setError(true); // allows to show error message
       } finally {
         setIsLoading(false); // executed, however there are error or not
@@ -83,7 +95,7 @@ const Dashboard = () => {
   return isLoading ? (
     <Loader />
   ) : error ? (
-    <ErrorMessage />
+    <ErrorMessage message={errorMessage} />
   ) : (
     <>
       <DashboardHeader user={user} />
