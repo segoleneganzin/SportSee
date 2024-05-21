@@ -147,7 +147,6 @@ const AverageSessions = ({ userAverageSessions }) => {
               fontSize: '0.75rem',
               opacity: 0.5,
             }}
-            interval='preserveStartEnd'
             tickFormatter={formatLabel}
           />
           <YAxis hide domain={['dataMin-10', 'dataMax+10']} />
