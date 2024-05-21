@@ -9,6 +9,7 @@ export const fetchData = async (endpoint, userId, mockedDatas) => {
   try {
     const response = await fetch(endpoint);
     let data = await response.json();
+    // console.log('Origine des données : ' + endpoint);
     if (mockedDatas) {
       // depending on the endpoint, this may be id or userId
       data = data.find((user) => user.id === userId || user.userId === userId); // filter datas and get datas correspond to userID

@@ -11,7 +11,6 @@ import { sports } from '../assets/datas/sports';
  * @returns {JSX.Element}
  */
 const VerticalNav = () => {
-  console.log(sports);
   return (
     <nav className='vertical-nav'>
       {sports.map((item, index) => (
