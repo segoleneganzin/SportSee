@@ -22,6 +22,7 @@ const getDatasById = (userId, dataType) => {
   if (mockedDatas) {
     uri = `/mocks/${dataType}.json`;
   } else {
+    // api
     uri =
       dataType === 'user' ? `/user/${userId}` : `/user/${userId}/${dataType}`;
   }
