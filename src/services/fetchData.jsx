@@ -8,6 +8,9 @@
 export const fetchData = async (endpoint, userId, mockedDatas) => {
   try {
     const response = await fetch(endpoint);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
     let data = await response.json();
     // console.log('Origine des données : ' + endpoint);
     if (mockedDatas) {
@@ -20,6 +23,6 @@ export const fetchData = async (endpoint, userId, mockedDatas) => {
     return mockedDatas ? data : data.data;
   } catch (error) {
     console.error('Fetch error:', error);
-    throw error;
+    throw error; // error propagation
   }
 };

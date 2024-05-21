@@ -33,6 +33,18 @@ const Dashboard = () => {
   const userIdNumber = Number(userId);
   const { currentUserId } = useUser(); // get the current userId from context, allows us to compare with url id parameter to manage security of datas
 
+  const updateUserStates = (
+    userById,
+    userActivityById,
+    userAverageSessionsById,
+    userPerformanceById
+  ) => {
+    setUser(userById);
+    setUserActivity(userActivityById);
+    setUserAverageSessions(userAverageSessionsById);
+    setUserPerformance(userPerformanceById);
+  };
+
   useEffect(() => {
     const fetchDatas = async () => {
       try {
@@ -40,20 +52,29 @@ const Dashboard = () => {
         if (userIdNumber !== currentUserId) {
           throw new Error();
         }
-        const userById = await getUserById(userIdNumber);
-        const userActivityById = await getUserActivityById(userIdNumber);
-        const userAverageSessionsById = await getUserAverageSessionsById(
-          userIdNumber
+        const [
+          userById,
+          userActivityById,
+          userAverageSessionsById,
+          userPerformanceById,
+        ] = await Promise.all([
+          // resolved when all promises are resolved
+          getUserById(userIdNumber),
+          getUserActivityById(userIdNumber),
+          getUserAverageSessionsById(userIdNumber),
+          getUserPerformanceById(userIdNumber),
+        ]);
+        updateUserStates(
+          userById,
+          userActivityById,
+          userAverageSessionsById,
+          userPerformanceById
         );
-        const userPerformanceById = await getUserPerformanceById(userIdNumber);
-        setUser(userById);
-        setUserActivity(userActivityById);
-        setUserAverageSessions(userAverageSessionsById);
-        setUserPerformance(userPerformanceById);
       } catch (error) {
         setError(true); // allows to show error message
+      } finally {
+        setIsLoading(false); // executed, however there are error or not
       }
-      setIsLoading(false);
     };
 
     fetchDatas();
