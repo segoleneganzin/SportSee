@@ -8,6 +8,10 @@
   padding-left: 29px;
   padding-right: 29px;
   width: 100%;
+  &__logo {
+    z-index: 99;
+  }
+
   @include min-media-breakpoint($breakpoint-laptop) {
     padding-right: 91px;
   }

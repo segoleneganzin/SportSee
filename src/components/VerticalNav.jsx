@@ -11,11 +11,12 @@ import { sports } from '../assets/datas/sports';
  * @returns {JSX.Element}
  */
 const VerticalNav = () => {
+  console.log(sports);
   return (
     <nav className='vertical-nav'>
       {sports.map((item, index) => (
         <Link
-          href={item.link}
+          to={item.link}
           className='vertical-nav__link'
           aria-label={item.name}
           key={index}

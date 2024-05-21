@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useUser } from '../utils/hooks/useUser';
+import { Link } from 'react-router-dom';
 
 /**
  * Component of the menu, located in the header.
@@ -18,18 +19,18 @@ const HeaderNav = () => {
     <>
       {/* nav links content */}
       <nav className={hamburgerOpen ? 'header-nav--responsive' : 'header-nav'}>
-        <a href={`/accueil/${currentUserId}`} className='header-nav__link'>
+        <Link to={`/accueil/${currentUserId}`} className='header-nav__link'>
           Accueil
-        </a>
-        <a href={`/profil/${currentUserId}`} className='header-nav__link'>
+        </Link>
+        <Link to={`/profil/${currentUserId}`} className='header-nav__link'>
           Profil
-        </a>
-        <a href={`/reglages/${currentUserId}`} className='header-nav__link'>
+        </Link>
+        <Link to={`/reglages/${currentUserId}`} className='header-nav__link'>
           Réglages
-        </a>
-        <a href={`/communaute/${currentUserId}`} className='header-nav__link'>
+        </Link>
+        <Link to={`/communaute/${currentUserId}`} className='header-nav__link'>
           Communauté
-        </a>
+        </Link>
       </nav>
       {/* hamburger menu display on device under 1024px */}
       <a
