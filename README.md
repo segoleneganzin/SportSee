@@ -22,7 +22,7 @@ Les données peuvent être simulées ou provenir d'une API, elles sont formatée
 
 Le projet utilise NodeJS et `pnpm`<br>
 
-➡ Télécharger le dossier du code et le dézipper<br>
+➡ Cloner le projet<br>
 ➡ Ouvrir le dossier dans VSCode (ou tout autre IDE)<br>
 ➡ Installer les nodes-modules : `pnpm install`<br>
 
@@ -77,7 +77,7 @@ Data can be mocked or come from an API, and it is formatted to allow filling the
 
 The project uses NodeJS and `pnpm`<br>
 
-➡ Download the code folder and unzip it<br>
+➡ Clone the project<br>
 ➡ Open the folder in VSCode (or any other IDE)<br>
 ➡ Install node-modules: pnpm install<br>
 
