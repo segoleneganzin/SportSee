@@ -20,7 +20,7 @@ console.log('Données mockées : ' + mockedDatas);
 const getDatasById = (userId, dataType) => {
   let endpoint;
   if (mockedDatas) {
-    endpoint = `${import.meta.env.VITE_APP_API_URL}/mocks/${dataType}.json`;
+    endpoint = `https://sportsee-five.vercel.app/mocks/${dataType}.json`;
   } else {
     // api
     endpoint = `http://localhost:3000${
