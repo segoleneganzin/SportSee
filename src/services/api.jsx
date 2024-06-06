@@ -18,16 +18,16 @@ console.log('Données mockées : ' + mockedDatas);
  *  @returns {Promise<any>}
  */
 const getDatasById = (userId, dataType) => {
-  const port = mockedDatas ? '5173' : '3000';
-  let uri;
+  let endpoint;
   if (mockedDatas) {
-    uri = `/mocks/${dataType}.json`;
+    endpoint = `${import.meta.env.VITE_APP_API_URL}/mocks/${dataType}.json`;
   } else {
     // api
-    uri =
-      dataType === 'user' ? `/user/${userId}` : `/user/${userId}/${dataType}`;
+    endpoint = `http://localhost:3000${
+      dataType === 'user' ? `/user/${userId}` : `/user/${userId}/${dataType}`
+    }`;
   }
-  return fetchData('http://localhost:' + port + uri, userId, mockedDatas);
+  return fetchData(`${endpoint}`, userId, mockedDatas);
 };
 
 // ******* READ functions
