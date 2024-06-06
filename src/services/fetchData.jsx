@@ -7,6 +7,7 @@
  */
 export const fetchData = async (endpoint, userId, mockedDatas) => {
   try {
+    console.log('Endpoint : ' + endpoint);
     const response = await fetch(endpoint);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);

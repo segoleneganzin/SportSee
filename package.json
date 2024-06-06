@@ -15,7 +15,8 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.23.0",
     "recharts": "^2.12.6",
-    "sass": "^1.75.0"
+    "sass": "^1.75.0",
+    "vercel": "^34.2.5"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",

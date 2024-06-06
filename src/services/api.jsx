@@ -5,7 +5,8 @@ import { UserAverageSessions } from './models/UserAverageSessions';
 import { UserPerformance } from './models/UserPerformance';
 
 // manage mocked datas or api
-const mockedDatas = true;
+const mockedDatas = false;
+console.log('Données mockées : ' + mockedDatas);
 
 /**
  * Manages data sourcing route
